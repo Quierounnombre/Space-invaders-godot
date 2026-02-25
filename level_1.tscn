@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c63pr6fjv4lga"]
+
+[ext_resource type="Script" uid="uid://ef4qq8j7ysa" path="res://Player.cs" id="1_hbghi"]
+[ext_resource type="Texture2D" uid="uid://6sc8qwievl81" path="res://icon.svg" id="2_hn12h"]
+
+[node name="Node2D" type="Node2D" unique_id=390823132]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=453915640]
+position = Vector2(356, 174)
+disable_mode = 2
+script = ExtResource("1_hbghi")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=513154503]
+rotation = 0.0046860967
+scale = Vector2(1.68, 1)
+texture = ExtResource("2_hn12h")
