@@ -7,6 +7,7 @@ public partial class Player : CharacterBody2D
 	private float				dir_horizontal = 0;
 	private float				horizontal_size;
 	private float				sprite_half_size;
+	private bool				flag_shooting = true;
 	private PackedScene			bulletScene;
 
 	public void GetInput()
@@ -68,10 +69,16 @@ public partial class Player : CharacterBody2D
 	{
 		if (Input.IsKeyPressed(Key.Space))
 		{
-			var bullet = bulletScene.Instantiate<Bullet>();
-			bullet.Position = Position;
-			bullet.Init(Vector2.Right); // or your facing direction
-			GetTree().CurrentScene.AddChild(bullet);
+			if (flag_shooting) 
+			{
+				var bullet = bulletScene.Instantiate<Bullet>();
+				bullet.Position = Position;
+				GetTree().CurrentScene.AddChild(bullet);
+				flag_shooting = false;
+			}
+		} else
+		{
+			flag_shooting = true;
 		}
 	}
 }
