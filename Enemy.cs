@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public partial class Bullet : Area2D
+public partial class Enemy : Area2D
 {
-	[Export] public float Speed = 800f;
-	private Vector2 direction = Vector2.Up;
+	[Export] public float Speed = 50f;
+	private Vector2 direction = Vector2.Down;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -18,7 +18,11 @@ public partial class Bullet : Area2D
 
 	private void OnAreaEntered(Area2D area)
 	{
-		if (area is Enemy)
+		if (area is Bullet)
+		{
+			GD.Print("ME han dado");
 			QueueFree();
+		}
 	}
+
 }

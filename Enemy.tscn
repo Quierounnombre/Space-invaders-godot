@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://odur0qsrkqxx"]
+
+[ext_resource type="Script" uid="uid://bhrijqe2g8a60" path="res://Enemy.cs" id="1_s7bn3"]
+[ext_resource type="Texture2D" uid="uid://6sc8qwievl81" path="res://icon.svg" id="2_2hac7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7bn3"]
+size = Vector2(119, 115)
+
+[node name="Node2D" type="Area2D" unique_id=1989440771]
+script = ExtResource("1_s7bn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=952048636]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_s7bn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=685849497]
+texture = ExtResource("2_2hac7")

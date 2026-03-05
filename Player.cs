@@ -9,6 +9,7 @@ public partial class Player : CharacterBody2D
 	private float				sprite_half_size;
 	private bool				flag_shooting = true;
 	private PackedScene			bulletScene;
+	private PackedScene			enemyScene;
 
 	public void GetInput()
 	{
@@ -34,7 +35,6 @@ public partial class Player : CharacterBody2D
 		windows = view.GetVisibleRect();
 		size_of_window = windows.Size;
 		horizontal_size = size_of_window.X;
-		GD.Print(horizontal_size);
 
 		//SPRITE
 		Sprite2D	sprite;
@@ -52,6 +52,7 @@ public partial class Player : CharacterBody2D
 
 		//LOAD SCENE
 		bulletScene = GD.Load<PackedScene>("res://Bullet.tscn");
+		enemyScene = GD.Load<PackedScene>("res://Enemy.tscn");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -62,7 +63,6 @@ public partial class Player : CharacterBody2D
 		Vector2 pos = Position;
 		pos.X = Mathf.Clamp(pos.X, sprite_half_size, horizontal_size - sprite_half_size);
 		Position = pos;
-		GD.Print(Position);
 	}
 
 	public override void _Process(double delta)
@@ -79,6 +79,12 @@ public partial class Player : CharacterBody2D
 		} else
 		{
 			flag_shooting = true;
+		}
+		if (Input.IsKeyPressed(Key.J))
+		{
+			var enemy = enemyScene.Instantiate<Enemy>();
+			enemy.Position = new Vector2(Position.X, Position.Y - 800);
+			GetTree().CurrentScene.AddChild(enemy);
 		}
 	}
 }
