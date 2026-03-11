@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ef4qq8j7ysa" path="res://Player.cs" id="1_hbghi"]
 [ext_resource type="Texture2D" uid="uid://6sc8qwievl81" path="res://icon.svg" id="2_hn12h"]
+[ext_resource type="Script" uid="uid://3ey1d5ng4soh" path="res://Spawner.cs" id="3_hn12h"]
 
 [node name="Node2D" type="Node2D" unique_id=390823132]
 
@@ -15,3 +16,9 @@ script = ExtResource("1_hbghi")
 rotation = 0.0046860967
 scale = Vector2(1.68, 1)
 texture = ExtResource("2_hn12h")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1674003051]
+position = Vector2(50, 0)
+script = ExtResource("3_hn12h")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=537030017]
