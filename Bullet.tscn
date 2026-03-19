@@ -17,3 +17,5 @@ shape = SubResource("RectangleShape2D_4s4u5")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=562405376]
 scale = Vector2(0.15, 0.45)
 texture = ExtResource("1_ayd6b")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=408117592]

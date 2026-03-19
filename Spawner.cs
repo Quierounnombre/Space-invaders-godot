@@ -14,7 +14,6 @@ public partial class Spawner : Node2D
 		_timer.WaitTime = 10.0f;
 		_timer.Timeout += OnTick;
 		_timer.Start();
-
 	}
 
 	private void OnTick()
@@ -29,7 +28,7 @@ public partial class Spawner : Node2D
 	private void Spawn_enemy()
 	{
 		var enemy = enemyScene.Instantiate<Enemy>();
-		enemy.Position = new Vector2(Position.X, Position.Y - 800);
+		enemy.Position = new Vector2(Position.X, Position.Y - 200);
 		GetTree().CurrentScene.AddChild(enemy);
 	}
 

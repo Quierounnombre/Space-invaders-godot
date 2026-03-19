@@ -14,6 +14,12 @@ public partial class Bullet : Area2D
 	public override void _Ready()
 	{
 		AreaEntered += OnAreaEntered;
+		GetNode<VisibleOnScreenNotifier2D>("VisibleOnScreenNotifier2D").ScreenExited += ScreenLeave;
+	}
+
+	private void ScreenLeave()
+	{
+		QueueFree();
 	}
 
 	private void OnAreaEntered(Area2D area)
