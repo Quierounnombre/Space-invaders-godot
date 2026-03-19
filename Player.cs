@@ -3,25 +3,24 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	private int					speed = 400;
+	private float				acceleration = 5.0f;
 	private float				dir_horizontal = 0;
 	private float				horizontal_size;
 	private float				sprite_half_size;
 	private bool				flag_shooting = true;
 	private PackedScene			bulletScene;
-	private PackedScene			enemyScene;
 
 	public void GetInput()
 	{
 		if (Input.IsKeyPressed(Key.A))
 		{
 			dir_horizontal = -1f;
-			Velocity = new Vector2(dir_horizontal * speed, 0f);
+			Velocity += new Vector2(dir_horizontal * acceleration, 0f);
 		}
 		else if (Input.IsKeyPressed(Key.D))
 		{
 			dir_horizontal = 1f;
-			Velocity = new Vector2(dir_horizontal * speed, 0f);
+			Velocity += new Vector2(dir_horizontal * acceleration, 0f);
 		}
 	}
 
@@ -52,7 +51,6 @@ public partial class Player : CharacterBody2D
 
 		//LOAD SCENE
 		bulletScene = GD.Load<PackedScene>("res://Bullet.tscn");
-		enemyScene = GD.Load<PackedScene>("res://Enemy.tscn");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -79,12 +77,6 @@ public partial class Player : CharacterBody2D
 		} else
 		{
 			flag_shooting = true;
-		}
-		if (Input.IsKeyPressed(Key.J))
-		{
-			var enemy = enemyScene.Instantiate<Enemy>();
-			enemy.Position = new Vector2(Position.X, Position.Y - 800);
-			GetTree().CurrentScene.AddChild(enemy);
 		}
 	}
 }

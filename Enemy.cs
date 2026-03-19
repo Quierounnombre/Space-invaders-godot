@@ -3,7 +3,7 @@ using System;
 
 public partial class Enemy : Area2D
 {
-	[Export] public float Speed = 50f;
+	[Export] public float Speed = 100f;
 	private Vector2 direction = Vector2.Down;
 
 	public override void _PhysicsProcess(double delta)
@@ -21,6 +21,11 @@ public partial class Enemy : Area2D
 		if (area is Bullet)
 		{
 			GD.Print("ME han dado");
+			QueueFree();
+		}
+		if (area.GetParent() is Player)
+		{
+			GD.Print("Le he dado");
 			QueueFree();
 		}
 	}
