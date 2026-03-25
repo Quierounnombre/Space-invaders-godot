@@ -19,3 +19,4 @@ scale = Vector2(0.15, 0.45)
 texture = ExtResource("1_ayd6b")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=408117592]
+rect = Rect2(-10, -29, 20, 58)

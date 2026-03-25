@@ -9,19 +9,17 @@ public partial class Player : CharacterBody2D
 	private float				sprite_half_size;
 	private bool				flag_shooting = true;
 	private PackedScene			bulletScene;
+	private float				angle = Mathf.Pi / 2f; // start at bottom (90°)
+	private float				radius = 300f;         // adjust to taste
+	public static Vector2		circleCenter;
 
 	public void GetInput()
 	{
 		if (Input.IsKeyPressed(Key.A))
-		{
-			dir_horizontal = -1f;
-			Velocity += new Vector2(dir_horizontal * acceleration, 0f);
-		}
+			angle += acceleration * 0.01f;
 		else if (Input.IsKeyPressed(Key.D))
-		{
-			dir_horizontal = 1f;
-			Velocity += new Vector2(dir_horizontal * acceleration, 0f);
-		}
+			angle -= acceleration * 0.01f;
+		angle = Mathf.Clamp(angle, 0f, Mathf.Pi); // lock to semicircle
 	}
 
 	public override void _Ready()
@@ -43,24 +41,22 @@ public partial class Player : CharacterBody2D
 		sprite_half_size = size.X / 2f;
 
 		//START POS
-		Vector2 pos;
-
-		pos.X = 0f;
-		pos.Y = size_of_window.Y - (size.Y / 2);
-		Position = pos;
+		circleCenter.X = size_of_window.X / 2;
+		circleCenter.Y = size_of_window.Y;
 
 		//LOAD SCENE
 		bulletScene = GD.Load<PackedScene>("res://Bullet.tscn");
+
+		//AREA ENTER
+		GetNode<Area2D>("Area2D").AreaEntered += OnAreaEntered;
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 		GetInput();
 		MoveAndSlide();
-
-		Vector2 pos = Position;
-		pos.X = Mathf.Clamp(pos.X, sprite_half_size, horizontal_size - sprite_half_size);
-		Position = pos;
+		Position = circleCenter + new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle)) * radius;
+		Rotation = -angle + Mathf.Pi / 2f;
 	}
 
 	public override void _Process(double delta)
@@ -71,12 +67,22 @@ public partial class Player : CharacterBody2D
 			{
 				var bullet = bulletScene.Instantiate<Bullet>();
 				bullet.Position = Position;
+				bullet.Direction = new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle));
+				bullet.Rotation = -angle + Mathf.Pi / 2f;
 				GetTree().CurrentScene.AddChild(bullet);
 				flag_shooting = false;
 			}
 		} else
 		{
 			flag_shooting = true;
+		}
+	}
+
+	private void OnAreaEntered(Area2D area)
+	{
+		if (area is Enemy)
+		{
+			QueueFree();
 		}
 	}
 }

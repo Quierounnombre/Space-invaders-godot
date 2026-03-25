@@ -3,12 +3,12 @@ using System;
 
 public partial class Bullet : Area2D
 {
-	[Export] public float Speed = 800f;
-	private Vector2 direction = Vector2.Up;
+	public float		Speed = 800f;
+	public Vector2		Direction = Vector2.Up;
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Position += direction * Speed * (float)delta;
+		Position += Direction * Speed * (float)delta;
 	}
 
 	public override void _Ready()

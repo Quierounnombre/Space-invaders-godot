@@ -30,6 +30,7 @@ public partial class Spawner : Node2D
 	{
 		var enemy = enemyScene.Instantiate<Enemy>();
 		enemy.Position = new Vector2(Position.X, Position.Y - 200);
+		enemy.SetTarget(Player.circleCenter);
 		GetTree().CurrentScene.AddChild(enemy);
 	}
 

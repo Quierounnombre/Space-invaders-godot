@@ -5,12 +5,12 @@
 [ext_resource type="Script" uid="uid://3ey1d5ng4soh" path="res://Spawner.cs" id="3_hn12h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
-size = Vector2(208, 126)
+size = Vector2(215, 128)
 
 [node name="Node2D" type="Node2D" unique_id=390823132]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=453915640]
-position = Vector2(356, 174)
+position = Vector2(908, 519)
 disable_mode = 2
 collision_layer = 3
 script = ExtResource("1_hbghi")
@@ -23,7 +23,7 @@ texture = ExtResource("2_hn12h")
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=1769277979]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=1642329049]
-position = Vector2(-1, -1)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_hn12h")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1674003051]
