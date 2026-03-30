@@ -5,8 +5,9 @@ public partial class Spawner : Node2D
 {
 	private PackedScene			enemyScene;
 	private Timer				_timer;
-	private Vector2				pos;
 	private float				windowWidth;
+	private float				radius = 1000f;
+	private float				angle = Mathf.Pi / 2f;
 
 	public override void _Ready()
 	{
@@ -20,16 +21,14 @@ public partial class Spawner : Node2D
 
 	private void OnTick()
 	{
-		pos.X = windowWidth * GD.Randf();
-		pos.Y = Position.Y;
-		Position = pos;
+		angle = (float)GD.RandRange(0.0, Mathf.Pi);
 		Spawn_enemy();
 	}
 	
 	private void Spawn_enemy()
 	{
 		var enemy = enemyScene.Instantiate<Enemy>();
-		enemy.Position = new Vector2(Position.X, Position.Y - 200);
+		enemy.Position = Player.circleCenter + new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle)) * radius;
 		enemy.SetTarget(Player.circleCenter);
 		GetTree().CurrentScene.AddChild(enemy);
 	}
