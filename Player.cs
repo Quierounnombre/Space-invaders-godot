@@ -3,8 +3,10 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	private float				acceleration = 5.0f;
-	private float				dir_horizontal = 0;
+	private float				acceleration = 0.003f;
+	private float				speed = 0.0f;
+	private float				friction = 0.92f;
+	private float				speed_limit = 0.07f;
 	private float				horizontal_size;
 	private float				sprite_half_size;
 	private bool				flag_shooting = true;
@@ -16,9 +18,17 @@ public partial class Player : CharacterBody2D
 	public void GetInput()
 	{
 		if (Input.IsKeyPressed(Key.A))
-			angle += acceleration * 0.01f;
+			speed += acceleration;
 		else if (Input.IsKeyPressed(Key.D))
-			angle -= acceleration * 0.01f;
+			speed -= acceleration;
+		else
+			speed *= friction;
+		if (Input.IsKeyPressed(Key.W))
+			radius++;
+		else if (Input.IsKeyPressed(Key.S))
+			radius--;
+		speed = Mathf.Clamp(speed, -speed_limit, speed_limit);
+		angle += speed;
 		angle = Mathf.Clamp(angle, 0f, Mathf.Pi); // lock to semicircle
 	}
 
