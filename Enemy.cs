@@ -31,6 +31,10 @@ public partial class Enemy : Area2D
 		{
 			QueueFree();
 		}
+		if (area is Planeta)
+		{
+			QueueFree();
+		}
 	}
 
 }

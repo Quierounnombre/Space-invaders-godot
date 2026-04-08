@@ -9,10 +9,8 @@ public partial class Player : CharacterBody2D
 	private float				speed_limit = 0.07f;
 	private float				horizontal_size;
 	private float				sprite_half_size;
-	private bool				flag_shooting = true;
-	private PackedScene			bulletScene;
-	private float				angle = Mathf.Pi / 2f; // start at bottom (90°)
 	private float				radius = 300f;         // adjust to taste
+	public float				angle = Mathf.Pi / 2f; // start at bottom (90°)
 	public static Vector2		circleCenter;
 
 	public void GetInput()
@@ -54,9 +52,6 @@ public partial class Player : CharacterBody2D
 		circleCenter.X = size_of_window.X / 2;
 		circleCenter.Y = size_of_window.Y;
 
-		//LOAD SCENE
-		bulletScene = GD.Load<PackedScene>("res://Bullet.tscn");
-
 		//AREA ENTER
 		GetNode<Area2D>("Area2D").AreaEntered += OnAreaEntered;
 	}
@@ -71,21 +66,6 @@ public partial class Player : CharacterBody2D
 
 	public override void _Process(double delta)
 	{
-		if (Input.IsKeyPressed(Key.Space))
-		{
-			if (flag_shooting) 
-			{
-				var bullet = bulletScene.Instantiate<Bullet>();
-				bullet.Position = Position;
-				bullet.Direction = new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle));
-				bullet.Rotation = -angle + Mathf.Pi / 2f;
-				GetTree().CurrentScene.AddChild(bullet);
-				flag_shooting = false;
-			}
-		} else
-		{
-			flag_shooting = true;
-		}
 	}
 
 	private void OnAreaEntered(Area2D area)
