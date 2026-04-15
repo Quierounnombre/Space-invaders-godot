@@ -25,9 +25,6 @@ public partial class Player : CharacterBody2D
 			radius++;
 		else if (Input.IsKeyPressed(Key.S))
 			radius--;
-		speed = Mathf.Clamp(speed, -speed_limit, speed_limit);
-		angle += speed;
-		angle = Mathf.Clamp(angle, 0f, Mathf.Pi); // lock to semicircle
 	}
 
 	public override void _Ready()
@@ -62,6 +59,9 @@ public partial class Player : CharacterBody2D
 		{
 			GetInput();	
 		}
+		speed = Mathf.Clamp(speed, -speed_limit, speed_limit);
+		angle += speed;
+		angle = Mathf.Clamp(angle, 0f, Mathf.Pi); // lock to semicircle
 		MoveAndSlide();
 		Position = circleCenter + new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle)) * radius;
 		Rotation = -angle + Mathf.Pi / 2f;

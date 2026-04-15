@@ -7,6 +7,7 @@ public partial class Weapon : Node2D
 	private int					ammo;
 	private string				charge_formula;
 	private bool				flag_shooting = true;
+	private bool				flag_combo = true;
 	private PackedScene			bulletScene;
 	private string				combo; 
 	private string				combo_input; 
@@ -15,7 +16,7 @@ public partial class Weapon : Node2D
 		bulletScene = GD.Load<PackedScene>("res://Bullet.tscn");
 		magazine = 6;
 		ammo = magazine;
-		combo = "LLD";
+		combo = "LLR";
 		combo_input = "";
 	}
 
@@ -41,13 +42,23 @@ public partial class Weapon : Node2D
 		}
 		if (Input.IsKeyPressed(Key.R))
 		{
-			GetCombo();
+			GD.Print(combo_input);
+			if (flag_combo)
+				GetCombo();
+// TODO
+			if (
+				!Input.IsKeyPressed(Key.Left) &&
+				!Input.IsKeyPressed(Key.Right) &&
+				!Input.IsKeyPressed(Key.Up) &&
+				!Input.IsKeyPressed(Key.Down)
+				)
+				flag_combo = true;
 		}
 		else
 		{
 			if (IsComboOK())
 				ammo = magazine;
-			combo_input = "";			
+			combo_input = "";
 		}
 	}
 
@@ -61,6 +72,7 @@ public partial class Weapon : Node2D
 
 	private void GetCombo()
 	{
+		flag_combo = false;
 		if (Input.IsKeyPressed(Key.Left))
 			combo_input += "L";
 		if (Input.IsKeyPressed(Key.Right))
