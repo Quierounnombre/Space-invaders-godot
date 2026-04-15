@@ -58,7 +58,10 @@ public partial class Player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		GetInput();
+		if (!Input.IsKeyPressed(Key.R))
+		{
+			GetInput();	
+		}
 		MoveAndSlide();
 		Position = circleCenter + new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle)) * radius;
 		Rotation = -angle + Mathf.Pi / 2f;
