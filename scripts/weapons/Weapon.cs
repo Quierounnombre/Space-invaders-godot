@@ -1,19 +1,19 @@
 using Godot;
 using System;
 
-public partial class Weapon : Node2D
+public abstract partial class Weapon : Node2D
 {
-	private int					magazine;
-	private int					ammo;
-	private string				charge_formula;
-	private bool				flag_shooting = true;
-	private bool				flag_combo = true;
-	private PackedScene			bulletScene;
-	private string				combo; 
-	private string				combo_input; 
+	protected int					magazine;
+	protected int					ammo;
+	protected bool					flag_shooting = true;
+	protected bool					flag_combo = true;
+	protected PackedScene			bulletScene;
+	protected string				combo; 
+	protected string				combo_input; 
+
 	public override void _Ready()
 	{
-		bulletScene = GD.Load<PackedScene>("res://Bullet.tscn");
+		bulletScene = GD.Load<PackedScene>("res://scripts/Bullet.tscn");
 		magazine = 6;
 		ammo = magazine;
 		combo = "LLR";
@@ -28,11 +28,7 @@ public partial class Weapon : Node2D
 			{
 				Player player = (Player)GetParent();
 				float angle = player.angle;
-				var bullet = bulletScene.Instantiate<Bullet>();
-				bullet.Position = player.Position;
-				bullet.Direction = new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle));
-				bullet.Rotation = -angle + Mathf.Pi / 2f;
-				GetTree().CurrentScene.AddChild(bullet);
+				Shoot(player.Position, angle);
 				flag_shooting = false;
 				ammo--;
 			}
@@ -45,7 +41,7 @@ public partial class Weapon : Node2D
 			GD.Print(combo_input);
 			if (flag_combo)
 				GetCombo();
-// TODO
+// TODO proper edge detection
 			if (
 				!Input.IsKeyPressed(Key.Left) &&
 				!Input.IsKeyPressed(Key.Right) &&
@@ -62,15 +58,23 @@ public partial class Weapon : Node2D
 		}
 	}
 
-// < < >+!R
-	private bool IsComboOK()
+	protected void Shoot(Vector2 position, float angle)
+	{
+		var bullet = bulletScene.Instantiate<Bullet>();
+		bullet.Position = position;
+		bullet.Direction = new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle));
+		bullet.Rotation = -angle + Mathf.Pi / 2f;
+		GetTree().CurrentScene.AddChild(bullet);
+	}
+
+	protected bool IsComboOK()
 	{
 		if (combo_input == combo)
 			return (true);
 		return (false);
 	}
 
-	private void GetCombo()
+	protected void GetCombo()
 	{
 		flag_combo = false;
 		if (Input.IsKeyPressed(Key.Left))

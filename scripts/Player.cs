@@ -10,6 +10,7 @@ public partial class Player : CharacterBody2D
 	private float				horizontal_size;
 	private float				sprite_half_size;
 	private float				radius = 300f;         // adjust to taste
+	private Weapon				currentWeapon;
 	public float				angle = Mathf.Pi / 2f; // start at bottom (90°)
 	public static Vector2		circleCenter;
 
@@ -25,6 +26,14 @@ public partial class Player : CharacterBody2D
 			radius++;
 		else if (Input.IsKeyPressed(Key.S))
 			radius--;
+	}
+
+	public void Equip(Weapon weapon)
+	{
+		if (currentWeapon != null)
+			RemoveChild(currentWeapon);
+		currentWeapon = weapon;
+		AddChild(currentWeapon);
 	}
 
 	public override void _Ready()
@@ -51,6 +60,9 @@ public partial class Player : CharacterBody2D
 
 		//AREA ENTER
 		GetNode<Area2D>("Area2D").AreaEntered += OnAreaEntered;
+
+		//WEAPON
+		Equip(new Basic());
 	}
 
 	public override void _PhysicsProcess(double delta)

@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://c63pr6fjv4lga"]
 
-[ext_resource type="Script" uid="uid://ef4qq8j7ysa" path="res://Player.cs" id="1_hbghi"]
-[ext_resource type="Texture2D" uid="uid://6sc8qwievl81" path="res://icon.svg" id="2_hn12h"]
-[ext_resource type="Script" uid="uid://3ey1d5ng4soh" path="res://Spawner.cs" id="3_hn12h"]
-[ext_resource type="Script" uid="uid://b7tpg5q18yoj1" path="res://Weapon.cs" id="3_rka8t"]
-[ext_resource type="Script" uid="uid://o6i8xv8kr10t" path="res://Planeta.cs" id="4_ihfcg"]
+[ext_resource type="Script" uid="uid://csd5ylhu0pqph" path="res://scripts/Player.cs" id="1_rka8t"]
+[ext_resource type="Texture2D" uid="uid://e7mhqi6jvtay" path="res://sprites/icon.svg" id="2_hn12h"]
+[ext_resource type="Script" uid="uid://cbfxfio3kqxt4" path="res://scripts/Spawner.cs" id="3_hn12h"]
+[ext_resource type="Script" uid="uid://bmy8rth3xtwwt" path="res://scripts/Planeta.cs" id="4_ihfcg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
 size = Vector2(215, 128)
@@ -17,7 +16,7 @@ size = Vector2(215, 128)
 position = Vector2(957, 638)
 disable_mode = 2
 collision_layer = 3
-script = ExtResource("1_hbghi")
+script = ExtResource("1_rka8t")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=513154503]
 rotation = 0.0046860967
@@ -29,9 +28,6 @@ texture = ExtResource("2_hn12h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=1642329049]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_hn12h")
-
-[node name="Arma" type="Node2D" parent="CharacterBody2D" unique_id=479041651]
-script = ExtResource("3_rka8t")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1674003051]
 position = Vector2(50, 0)
