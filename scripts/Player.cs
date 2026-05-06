@@ -62,7 +62,8 @@ public partial class Player : CharacterBody2D
 		GetNode<Area2D>("Area2D").AreaEntered += OnAreaEntered;
 
 		//WEAPON
-		Equip(new Basic());
+		//Equip(new Basic());
+		Equip(new Gauss());
 	}
 
 	public override void _PhysicsProcess(double delta)

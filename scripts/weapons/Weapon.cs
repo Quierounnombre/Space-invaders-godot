@@ -13,7 +13,7 @@ public abstract partial class Weapon : Node2D
 
 	public override void _Ready()
 	{
-		bulletScene = GD.Load<PackedScene>("res://scripts/Bullet.tscn");
+		bulletScene = GD.Load<PackedScene>("res://Scenes/Ammo/Bullet.tscn");
 		magazine = 6;
 		ammo = magazine;
 		combo = "LLR";

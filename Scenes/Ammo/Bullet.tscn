@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://lrinxmthyesg"]
 
-[ext_resource type="Script" uid="uid://bq5rd4cv0v2p1" path="res://scripts/Bullet.cs" id="1_4s4u5"]
 [ext_resource type="Texture2D" uid="uid://e7mhqi6jvtay" path="res://sprites/icon.svg" id="1_ayd6b"]
+[ext_resource type="Script" uid="uid://dnyox23qq8rv6" path="res://scripts/ammo/Bullet.cs" id="1_y4s1w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4s4u5"]
 size = Vector2(20, 57)
 
 [node name="Bullet" type="Area2D" unique_id=1572743273]
 z_index = -1
-script = ExtResource("1_4s4u5")
+script = ExtResource("1_y4s1w")
+Speed = 800.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=844864872]
 position = Vector2(0, 0.5)
