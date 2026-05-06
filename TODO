@@ -1,2 +1,77 @@
-MAGAZINES + BULLETS
-Weapon sistems
+Pantalla de inico.
+Game over.
+Hangar.
+Ajustes.
+
+Sonido a las armas
+Efectos de sonidos de movimiento.
+Graficos.
+Nuevas armas.
+Enemigos distintois
+Bosses
+Dificultad.
+Fondos y arte general
+Progresion tierra -> nube de ort, donde cada vez hay enemigos más fuertes.
+
+Pantallas:
+	-> Tutorial(Luna) Gravedad casi nula, fricción minima.
+	-> Misión 1 Primer desembarco(tierra) Gravedad baja, fricción.
+	-> Random missions 3 por partida.
+		* Destruir una granja solar(Sol), Gravedad alta, fricción nula, Daño si te acercas mucho al sol.
+		* Escoltar naves de asalto(Marte), Gravedad baja, fricción minima.
+		* Emboscada en el cinturon de asteroides(Cinturon de asteroides), Gravedad casi nula, fricción. 360º y orbitas la nave nodriza.
+		* Defiende las reservas de agua (Europa), Gravedad casi nula, fricción nula.
+		etc hasta que nos cansemos.
+	-> Boss final.
+	-> Drops de lore con historia y arte
+
+Armas:
+	-> Torpedos nucelares:
+		* Detona en una gran area y hace DoT en un area.
+		* Formula de recarga: UDUD
+		* 1 proyectil a la vez, cuando sueltas el boton de disparo se detona.
+		* Cargador: 2
+	-> Proyectiles photokineticos:
+		* Un aspa que corta todo a su paso, en función de su inercia.
+		* Le das inercia manteniendo pulsado el disparo y manteniendo el laser de energia en su zona.
+		* Formula de recarga: RL
+		* Cargador: 3
+	-> Minigun:
+		* Dispara en función de la velocidad del cañon.
+		* Usa la tecla auxiliar (J) para acelerar el cañon
+		* Balas normales solo muchas
+		* Cargador: 150
+		* Formula de recarga: RDL
+	-> Misiles guiados:
+		* Siguen a un enemigo y le impactan directamente.
+		* Alto daño pero subceptible a contramedidas.
+		* Seguimiento en función del cabezal:
+			- Termicos
+			- IA de fotones
+			- Lidar
+		* Cargador: 4
+		* Formula de recarga: UUR
+		* Alterna de cabezal con la tecla auxiliar (J)
+	-> Cañon gaus:
+		* Alto daño y velocidad del proyectil.
+		* Para disparar hay casteo de 1,5s.
+		* Cargador: 27
+		* Formula de recarga: UDL
+		* Una vez casteado dispara continuamente en un cono con un 30º de dispersión. a un ritmo de 7 proyectiles/seg. con trayectoria aleatoria.
+	-> Laser:
+		* Alto daño y instantaneo.
+		* Apaga TODOS los sistemas de la nave.
+		* Cargador: 1
+		* Formula de recarga: RLRLRLRLRL
+		* El laser ocupa toda una dirección, y no se desintegra al chocar con un enemigo.
+	-> Cañones triples:
+		* Balas normales.
+		* Cargador: 6 x 3
+		* Formula de recarga: LLR
+		* Varia la inclinación con la tecla auxiliar (J) pulsa -> +5º. manten -> -5º
+		* Min 0º, Max 45º
+	
+
+
+Graficos:
+Resolucion 1920 x 1080

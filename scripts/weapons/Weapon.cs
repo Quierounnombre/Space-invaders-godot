@@ -41,7 +41,7 @@ public abstract partial class Weapon : Node2D
 			GD.Print(combo_input);
 			if (flag_combo)
 				GetCombo();
-// TODO proper edge detection
+			// TODO proper edge detection
 			if (
 				!Input.IsKeyPressed(Key.Left) &&
 				!Input.IsKeyPressed(Key.Right) &&
