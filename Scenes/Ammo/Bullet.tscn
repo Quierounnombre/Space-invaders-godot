@@ -10,6 +10,7 @@ size = Vector2(20, 57)
 z_index = -1
 script = ExtResource("1_y4s1w")
 Speed = 800.0
+Mass = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=844864872]
 position = Vector2(0, 0.5)

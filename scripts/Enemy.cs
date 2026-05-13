@@ -5,6 +5,7 @@ public partial class Enemy : Area2D
 {
 	public float		Speed = 100f;
 	private Vector2		direction = Vector2.Down;
+	public double		Life = 100f;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -23,10 +24,6 @@ public partial class Enemy : Area2D
 
 	private void OnAreaEntered(Area2D area)
 	{
-		if (area is Bullet)
-		{
-			QueueFree();
-		}
 		if (area.GetParent() is Player)
 		{
 			QueueFree();
@@ -39,6 +36,13 @@ public partial class Enemy : Area2D
 
 	public void TakeDamage(double e)
 	{
+		GD.Print("energy: "+ e);
+		GD.Print("life: " + Life);
+		Life -= e;
+		if (Life <= 0)
+		{
+			QueueFree();
+		}
 	}
 
 }

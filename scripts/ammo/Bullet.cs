@@ -25,9 +25,9 @@ public partial class Bullet : Area2D
 
 	private void OnAreaEntered(Area2D area)
 	{
-		if (area is Enemy)
+		if (area is Enemy enemy)
 		{
-			Calc_damage(area)
+			Calc_damage(enemy);
 			QueueFree();
 		}
 	}

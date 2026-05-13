@@ -11,6 +11,7 @@ z_index = -1
 position = Vector2(0, -80)
 script = ExtResource("1_5su7v")
 Speed = 1600.0
+Mass = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=844864872]
 position = Vector2(0, 5)
