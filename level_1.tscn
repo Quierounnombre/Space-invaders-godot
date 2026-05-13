@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://c63pr6fjv4lga"]
 
 [ext_resource type="Script" uid="uid://csd5ylhu0pqph" path="res://scripts/Player.cs" id="1_rka8t"]
+[ext_resource type="Texture2D" uid="uid://5f8fsm3obe2r" path="res://sprites/fire engine low 0 ez.png" id="2_5hph3"]
 [ext_resource type="Texture2D" uid="uid://e7mhqi6jvtay" path="res://sprites/icon.svg" id="2_hn12h"]
 [ext_resource type="Script" uid="uid://cbfxfio3kqxt4" path="res://scripts/Spawner.cs" id="3_hn12h"]
+[ext_resource type="Texture2D" uid="uid://dpi1qtabr0f5p" path="res://sprites/fire engine low 1 ez.png" id="3_j7kpp"]
 [ext_resource type="Script" uid="uid://bmy8rth3xtwwt" path="res://scripts/Planeta.cs" id="4_ihfcg"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ihfcg"]
@@ -10,6 +12,20 @@ load_path = "res://.godot/imported/nave01.png-b9f68d068b591aba36dc04c858eb1bae.c
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
 size = Vector2(41, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjebc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5hph3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j7kpp")
+}],
+"loop": true,
+"name": &"Propulsor_fire",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hn12h"]
 
@@ -34,6 +50,15 @@ skew = 0.005083084
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=1642329049]
 scale = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=794567005]
+z_index = -1
+position = Vector2(-26, 34)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bjebc")
+animation = &"Propulsor_fire"
+autoplay = "Propulsor_fire"
+frame_progress = 0.46219382
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1674003051]
 position = Vector2(50, 0)
