@@ -37,11 +37,11 @@ Armas:
 		* Formula de recarga: RL
 		* Cargador: 3
 	-> Minigun:
-		* Dispara en función de la velocidad del cañon.
-		* Usa la tecla auxiliar (J) para acelerar el cañon
-		* Balas normales solo muchas
-		* Cargador: 150
-		* Formula de recarga: RDL
+		* Dispara en función de la velocidad del cañon. OK
+		* Usa la tecla auxiliar (J) para acelerar el cañon OK
+		* Balas normales solo muchas OK
+		* Cargador: 150 OK
+		* Formula de recarga: RDL OK
 	-> Misiles guiados:
 		* Siguen a un enemigo y le impactan directamente.
 		* Alto daño pero subceptible a contramedidas.
@@ -75,3 +75,7 @@ Armas:
 
 Graficos:
 Resolucion 1920 x 1080
+
+Animación propulsores nave OK
+
+Propulsión gravitatoria
