@@ -37,4 +37,8 @@ public partial class Enemy : Area2D
 		}
 	}
 
+	public void TakeDamage(double e)
+	{
+	}
+
 }

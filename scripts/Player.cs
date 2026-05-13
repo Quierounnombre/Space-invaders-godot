@@ -63,7 +63,7 @@ public partial class Player : CharacterBody2D
 
 		//WEAPON
 		//Equip(new Basic());
-		Equip(new Gauss());
+		Equip(new Minigun());
 	}
 
 	public override void _PhysicsProcess(double delta)

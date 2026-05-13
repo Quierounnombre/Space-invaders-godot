@@ -5,8 +5,11 @@
 [ext_resource type="Script" uid="uid://cbfxfio3kqxt4" path="res://scripts/Spawner.cs" id="3_hn12h"]
 [ext_resource type="Script" uid="uid://bmy8rth3xtwwt" path="res://scripts/Planeta.cs" id="4_ihfcg"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ihfcg"]
+load_path = "res://.godot/imported/nave01.png-b9f68d068b591aba36dc04c858eb1bae.ctex"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
-size = Vector2(215, 128)
+size = Vector2(41, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hn12h"]
 
@@ -20,13 +23,16 @@ script = ExtResource("1_rka8t")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=513154503]
 rotation = 0.0046860967
-scale = Vector2(1.68, 1)
-texture = ExtResource("2_hn12h")
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_ihfcg")
 
 [node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=1769277979]
+rotation = -0.0031864403
+scale = Vector2(2, 2)
+skew = 0.005083084
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=1642329049]
-position = Vector2(-0.5, 0)
+scale = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_hn12h")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1674003051]

@@ -53,11 +53,11 @@ Armas:
 		* Formula de recarga: UUR
 		* Alterna de cabezal con la tecla auxiliar (J)
 	-> Cañon gaus:
-		* Alto daño y velocidad del proyectil.
-		* Para disparar hay casteo de 1,5s.
-		* Cargador: 27
-		* Formula de recarga: UDL
-		* Una vez casteado dispara continuamente en un cono con un 30º de dispersión. a un ritmo de 7 proyectiles/seg. con trayectoria aleatoria.
+		* Alto daño y velocidad del proyectil. OK
+		* Para disparar hay casteo de 1,5s.  OK
+		* Cargador: 27 OK
+		* Formula de recarga: UDL OK
+		* Una vez casteado dispara continuamente en un cono con un 30º de dispersión. a un ritmo de 7 proyectiles/seg. con trayectoria aleatoria. OK
 	-> Laser:
 		* Alto daño y instantaneo.
 		* Apaga TODOS los sistemas de la nave.
