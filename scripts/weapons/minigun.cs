@@ -3,7 +3,9 @@ using Godot;
 public partial class Minigun : Weapon
 {
 	private double	burst_timer = 0.0;
-	private double	shoot_rate = 1;
+	private double	gun_accel = 0.0;
+	private double	gun_accel_tick = 0.5;
+	public double	shoot_rate = 1.0;
 	public override void _Ready()
 	{
 		bulletScene = GD.Load<PackedScene>("res://Scenes/Ammo/Bullet.tscn");
@@ -31,6 +33,7 @@ public partial class Minigun : Weapon
 		else
 		{
 			flag_shooting = false;
+			shoot_rate = 1;
 			burst_timer = 0.0;
 		}
 		if (Input.IsKeyPressed(Key.R))
@@ -53,8 +56,26 @@ public partial class Minigun : Weapon
 				ammo = magazine;
 			combo_input = "";
 		}
-		if (Input.IsKeyPressed(Key.J) && burst_timer > 0)
-
+		if (Input.IsKeyPressed(Key.J) && flag_shooting == true)
+		{
+			gun_accel += delta;
+			if  (gun_accel >= gun_accel_tick)
+			{
+				gun_accel = 0;
+				if (shoot_rate >= 0.2)
+					shoot_rate -= 0.1;
+			}
+		}
+		else if (flag_shooting == true)
+		{
+			gun_accel += delta;
+			if  (gun_accel >= gun_accel_tick)
+			{
+				gun_accel = 0;
+				if (shoot_rate < 1)
+					shoot_rate += 0.1;
+			}
+		}
 
 	}
 }
