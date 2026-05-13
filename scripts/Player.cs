@@ -13,15 +13,35 @@ public partial class Player : CharacterBody2D
 	private Weapon				currentWeapon;
 	public float				angle = Mathf.Pi / 2f; // start at bottom (90°)
 	public static Vector2		circleCenter;
+	private AnimatedSprite2D	left_animation;
+	private AnimatedSprite2D	right_animation;
 
 	public void GetInput()
 	{
 		if (Input.IsKeyPressed(Key.A))
+		{
+			right_animation.Play("Propulsor_on");
+			left_animation.Play("Propulsor_idle");
 			speed += acceleration;
+		}
 		else if (Input.IsKeyPressed(Key.D))
+		{
+			left_animation.Play("Propulsor_on");
+			right_animation.Play("Propulsor_idle");
 			speed -= acceleration;
+		}
 		else
+		{
+			if (right_animation.Animation == "Propulsor_on"
+				|| left_animation.Animation == "Propulsor_on")
+			{
+				right_animation.Frame = 0;
+				left_animation.Frame = 0;
+				left_animation.Play("Propulsor_idle");
+				right_animation.Play("Propulsor_idle");
+			}
 			speed *= friction;
+		}
 		if (Input.IsKeyPressed(Key.W))
 			radius++;
 		else if (Input.IsKeyPressed(Key.S))
@@ -53,6 +73,9 @@ public partial class Player : CharacterBody2D
 		sprite = GetNode<Sprite2D>("Sprite2D");
 		Vector2 size = sprite.Texture.GetSize() * sprite.Scale;
 		sprite_half_size = size.X / 2f;
+
+		left_animation = GetNode<AnimatedSprite2D>("Propulsor_izq");
+		right_animation = GetNode<AnimatedSprite2D>("Propulsor_der");
 
 		//START POS
 		circleCenter.X = size_of_window.X / 2;

@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://e7mhqi6jvtay" path="res://sprites/icon.svg" id="2_hn12h"]
 [ext_resource type="Script" uid="uid://cbfxfio3kqxt4" path="res://scripts/Spawner.cs" id="3_hn12h"]
 [ext_resource type="Texture2D" uid="uid://dpi1qtabr0f5p" path="res://sprites/fire engine low 1 ez.png" id="3_j7kpp"]
+[ext_resource type="Texture2D" uid="uid://1h3i6prng8rm" path="res://sprites/fire engine hi 0 ez.png" id="4_bjebc"]
 [ext_resource type="Script" uid="uid://bmy8rth3xtwwt" path="res://scripts/Planeta.cs" id="4_ihfcg"]
+[ext_resource type="Texture2D" uid="uid://cwnglrogem80b" path="res://sprites/fire engine hi 1 ez.png" id="5_5rr72"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ihfcg"]
 load_path = "res://.godot/imported/nave01.png-b9f68d068b591aba36dc04c858eb1bae.ctex"
@@ -16,15 +18,26 @@ size = Vector2(41, 24)
 [sub_resource type="SpriteFrames" id="SpriteFrames_bjebc"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 1.1,
 "texture": ExtResource("2_5hph3")
 }, {
-"duration": 1.0,
+"duration": 0.9,
 "texture": ExtResource("3_j7kpp")
 }],
 "loop": true,
-"name": &"Propulsor_fire",
-"speed": 5.0
+"name": &"Propulsor_idle",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bjebc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5rr72")
+}],
+"loop": true,
+"name": &"Propulsor_on",
+"speed": 24.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hn12h"]
@@ -51,14 +64,22 @@ skew = 0.005083084
 scale = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_hn12h")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=794567005]
+[node name="Propulsor_izq" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=794567005]
 z_index = -1
-position = Vector2(-26, 34)
+position = Vector2(-26, 32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_bjebc")
-animation = &"Propulsor_fire"
-autoplay = "Propulsor_fire"
-frame_progress = 0.46219382
+animation = &"Propulsor_idle"
+autoplay = "Propulsor_idle"
+
+[node name="Propulsor_der" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1753971663]
+z_index = -1
+position = Vector2(25, 32)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bjebc")
+animation = &"Propulsor_idle"
+autoplay = "Propulsor_idle"
+flip_h = true
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1674003051]
 position = Vector2(50, 0)
