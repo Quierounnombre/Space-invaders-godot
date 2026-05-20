@@ -3,8 +3,6 @@ using Godot;
 public partial class Minigun : Weapon
 {
 	private double	burst_timer = 0.0;
-	private double	gun_accel = 0.0;
-	private double	gun_accel_tick = 0.5;
 	public double	shoot_rate = 1.0;
 	public override void _Ready()
 	{
@@ -58,23 +56,13 @@ public partial class Minigun : Weapon
 		}
 		if (Input.IsKeyPressed(Key.J) && flag_shooting == true)
 		{
-			gun_accel += delta;
-			if  (gun_accel >= gun_accel_tick)
-			{
-				gun_accel = 0;
-				if (shoot_rate >= 0.2)
-					shoot_rate -= 0.1;
-			}
+			if (shoot_rate > 0.05)
+				shoot_rate -= delta / 2;
 		}
 		else if (flag_shooting == true)
 		{
-			gun_accel += delta;
-			if  (gun_accel >= gun_accel_tick)
-			{
-				gun_accel = 0;
-				if (shoot_rate < 1)
-					shoot_rate += 0.1;
-			}
+			if (shoot_rate < 1)
+				shoot_rate += delta / 2;
 		}
 
 	}
