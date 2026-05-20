@@ -57,12 +57,12 @@ public partial class Minigun : Weapon
 		if (Input.IsKeyPressed(Key.J) && flag_shooting == true)
 		{
 			if (shoot_rate > 0.05)
-				shoot_rate -= delta;
+				shoot_rate -= delta / 2;
 		}
 		else if (flag_shooting == true)
 		{
 			if (shoot_rate < 1)
-				shoot_rate += delta;
+				shoot_rate += delta / 2;
 		}
 
 	}
