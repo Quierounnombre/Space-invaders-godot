@@ -1,20 +1,29 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Player : CharacterBody2D
 {
-	private float				acceleration = 0.003f;
+	//Ship
+	[Export] private float		acceleration = 0.003f;
 	private float				speed = 0.0f;
-	private float				friction = 0.92f;
 	private float				speed_limit = 0.07f;
+	public float				angle = Mathf.Pi / 2f; // start at bottom (90°)
+	private Weapon				currentWeapon;
+	public static Vector2		circleCenter;
+
+	//NEED TO BE MOVED FOR THE PLANET IN QUESTION
+	private float				friction = 0.92f;
+	private float				radius = 300f;
+
+	//Graphics
 	private float				horizontal_size;
 	private float				sprite_half_size;
-	private float				radius = 300f;         // adjust to taste
-	private Weapon				currentWeapon;
-	public float				angle = Mathf.Pi / 2f; // start at bottom (90°)
-	public static Vector2		circleCenter;
 	private AnimatedSprite2D	left_animation;
 	private AnimatedSprite2D	right_animation;
+
+	//Preload
+	private Dictionary<string, PackedScene> weaponScenes;
 
 	public void GetInput()
 	{
@@ -48,12 +57,18 @@ public partial class Player : CharacterBody2D
 			radius--;
 	}
 
-	public void Equip(Weapon weapon)
+	public void Equip(string weaponKey)
 	{
+		PackedScene		scene;
+
 		if (currentWeapon != null)
-			RemoveChild(currentWeapon);
-		currentWeapon = weapon;
-		AddChild(currentWeapon);
+			currentWeapon.QueueFree();
+		if (weaponScenes.ContainsKey(weaponKey))
+		{
+			scene = weaponScenes[weaponKey];
+			currentWeapon = scene.Instantiate<Weapon>();
+			AddChild(currentWeapon);
+		}
 	}
 
 	public override void _Ready()
@@ -85,8 +100,13 @@ public partial class Player : CharacterBody2D
 		GetNode<Area2D>("Area2D").AreaEntered += OnAreaEntered;
 
 		//WEAPON
+		weaponScenes = new Dictionary<string, PackedScene>
+		{
+			{ "minigun", GD.Load<PackedScene>("res://Scenes/Weapons/Minigun.tscn") },
+		};
+
 		//Equip(new Basic());
-		Equip(new Minigun());
+		Equip("minigun");
 	}
 
 	public override void _PhysicsProcess(double delta)
