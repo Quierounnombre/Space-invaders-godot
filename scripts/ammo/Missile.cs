@@ -12,7 +12,7 @@ Sensors -> Did the missile have a way to direct itself or being control remoted 
 public partial class Missile : Area2D
 {
 	[Export] public float				Speed;
-	[Export] public float				Mass;
+	[Export] public double				Mass;
 	[Export] public FuelResource		Fuel;
 	[Export] public PayloadResource		Payload;
 
@@ -20,7 +20,13 @@ public partial class Missile : Area2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Position += Direction * Speed * (float)delta;
+		double		delta_v;
+		double		energy;
+
+		energy = Fuel.Propulsate(this, delta);
+		delta_v = energy / Mass;
+		Speed += delta_v * (float)delta;
+		Position += Direction * Speed;
 	}
 
 	public override void _Ready()
@@ -47,12 +53,7 @@ public partial class Missile : Area2D
 	{
 		double e;
 
-		e = Kinetic_energy(Mass, Speed);
+		e = Payload.Direct_impact(Mass, Speed);
 		target.TakeDamage(e);
-	}
-
-	private double Kinetic_energy(double m, double v)
-	{
-		return (0.5 * m * v * v);
 	}
 }
