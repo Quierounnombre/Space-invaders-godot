@@ -12,6 +12,7 @@ Sensors -> Did the missile have a way to direct itself or being control remoted 
 public partial class Missile : Area2D
 {
 	[Export] public float				Speed;
+	[Export] public float				Mass;
 	[Export] public FuelResource		Fuel;
 	[Export] public PayloadResource		Payload;
 
