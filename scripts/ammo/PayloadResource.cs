@@ -12,6 +12,7 @@ public partial class PayloadResource : Resource
 
 	[Export] public float Kilos_of_TNT;
 	[Export] public float Area_of_impact;
+	[Export] public float Mass;
 
 	public double Direct_impact(double m, double v)
 	{

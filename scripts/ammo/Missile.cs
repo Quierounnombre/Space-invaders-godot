@@ -11,25 +11,30 @@ Sensors -> Did the missile have a way to direct itself or being control remoted 
 
 public partial class Missile : Area2D, IProjectile
 {
-	[Export] public double				Speed;
-	[Export] public double				Mass;
+	public double				Speed;
+	public double				Mass;
+	public double				Acceleration;
 	[Export] public FuelResource		Fuel;
 	[Export] public PayloadResource		Payload;
+	[Export] public SensorResource		Sensor;
+	[Export] public double				Chasis; //Weight of the chasis
 	public Vector2 Direction { get; set; } = Vector2.Up;
 
 	public override void _PhysicsProcess(double delta)
 	{
-		double		delta_v;
 		double		energy;
+		double		force;
 
 		energy = Fuel.Propulsate(this, delta);
-		delta_v = energy / Mass;
-		Speed += delta_v * delta;
-		Position += Direction * (float)Speed;
+		force = energy / delta;
+		Acceleration += force / Mass;
+		Speed += Acceleration * delta;
+		Position += Direction * (float)Speed * (float)delta;
 	}
 
 	public override void _Ready()
 	{
+		Mass = Fuel.Density * Fuel.Fuel + Payload.Mass + Chasis;
 		AreaEntered += OnAreaEntered;
 		GetNode<VisibleOnScreenNotifier2D>("VisibleOnScreenNotifier2D").ScreenExited += ScreenLeave;
 	}

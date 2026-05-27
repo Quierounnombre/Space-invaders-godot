@@ -7,10 +7,24 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eqdla"]
 load_path = "res://.godot/imported/atomic_torpedo.png-2e422bec707bf73fb62d2829ed37401a.ctex"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpe6y"]
+size = Vector2(29.999996, 48.499996)
+
 [node name="Missile" type="Area2D" unique_id=1523232983]
 script = ExtResource("1_2sqy3")
 Fuel = ExtResource("2_qpe6y")
 Payload = ExtResource("3_qpe6y")
+Chasis = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1522970310]
 texture = SubResource("CompressedTexture2D_eqdla")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=866936947]
+position = Vector2(0, 8.999999)
+scale = Vector2(0.2, 0.2)
+rect = Rect2(-10, -29, 20, 58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2049641645]
+position = Vector2(0, -10)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_qpe6y")
