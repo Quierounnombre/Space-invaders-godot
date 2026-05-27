@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="HeatSeekingSensor" format=3 uid="uid://dpq7pwhclg2er"]
+
+[ext_resource type="Script" uid="uid://chggy6lv6rggn" path="res://scripts/ammo/sensors/HeatSeekingSensor.cs" id="1_5cux5"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_5cux5")
+TurnRate = 5.0

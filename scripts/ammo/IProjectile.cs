@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial interface IProjectile
+public interface IProjectile
 {
 	public Vector2	Direction { get; set; }
 	public Vector2	Position { get; set; }

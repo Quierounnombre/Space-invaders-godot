@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bp4uo4a3skryh" path="res://scripts/ammo/Missile.cs" id="1_2sqy3"]
 [ext_resource type="Resource" uid="uid://die3yrmo6umcv" path="res://Scenes/Ammo/Fuels/Hydrazine.tres" id="2_qpe6y"]
 [ext_resource type="Resource" uid="uid://dqfrqffb54g8x" path="res://Scenes/Ammo/Payloads/Fragmentation.tres" id="3_qpe6y"]
+[ext_resource type="Resource" uid="uid://dpq7pwhclg2er" path="res://Scenes/Ammo/Sensors/HeatSeeking.tres" id="4_57e61"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eqdla"]
 load_path = "res://.godot/imported/atomic_torpedo.png-2e422bec707bf73fb62d2829ed37401a.ctex"
@@ -14,6 +15,7 @@ size = Vector2(29.999996, 48.499996)
 script = ExtResource("1_2sqy3")
 Fuel = ExtResource("2_qpe6y")
 Payload = ExtResource("3_qpe6y")
+Sensor = ExtResource("4_57e61")
 Chasis = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1522970310]

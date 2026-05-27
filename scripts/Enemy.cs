@@ -3,9 +3,10 @@ using System;
 
 public partial class Enemy : Area2D
 {
-	public float		Speed = 100f;
+	[Export] public float	HeatSignature;
+	[Export] public float	Speed;
+	[Export] public double	Life;
 	private Vector2		direction = Vector2.Down;
-	public double		Life = 100f;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -36,8 +37,6 @@ public partial class Enemy : Area2D
 
 	public void TakeDamage(double e)
 	{
-		GD.Print("energy: "+ e);
-		GD.Print("life: " + Life);
 		Life -= e;
 		if (Life <= 0)
 		{
