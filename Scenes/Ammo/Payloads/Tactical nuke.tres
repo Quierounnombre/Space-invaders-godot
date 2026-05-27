@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_pkcth")
 Area_of_impact = 0.5
-Mass = 10.0
+Mass = 2.0

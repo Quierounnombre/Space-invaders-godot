@@ -9,7 +9,7 @@ Fuel -> more fuel = delta V(for changing course)
 public partial class FuelResource : Resource
 {
 	[Export] public double Fuel;
-	[Export] public double density;
+	[Export] public double Density;
 	[Export] public double Energy_per_unit;
 	[Export] public double Burn_rate;
 
@@ -29,7 +29,7 @@ public partial class FuelResource : Resource
 			e = Energy_per_unit * Burn_rate * delta * propulsion_percentage;
 		}
 		Fuel -= expected_burn;
-		missile.Mass -= Fuel * density;
+		missile.Mass -= Fuel * Density;
 		return (e);
 	}
 }

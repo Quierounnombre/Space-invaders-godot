@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://csd5ylhu0pqph" path="res://scripts/Player.cs" id="1_rka8t"]
 [ext_resource type="Texture2D" uid="uid://5f8fsm3obe2r" path="res://sprites/fire engine low 0 ez.png" id="2_5hph3"]
-[ext_resource type="Texture2D" uid="uid://e7mhqi6jvtay" path="res://sprites/icon.svg" id="2_hn12h"]
 [ext_resource type="Script" uid="uid://cbfxfio3kqxt4" path="res://scripts/Spawner.cs" id="3_hn12h"]
 [ext_resource type="Texture2D" uid="uid://dpi1qtabr0f5p" path="res://sprites/fire engine low 1 ez.png" id="3_j7kpp"]
 [ext_resource type="Texture2D" uid="uid://1h3i6prng8rm" path="res://sprites/fire engine hi 0 ez.png" id="4_bjebc"]
@@ -42,6 +41,9 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hn12h"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bjebc"]
+load_path = "res://.godot/imported/luna.png-78c244b3dd2f850948d9193a70262b9f.ctex"
 
 [node name="Node2D" type="Node2D" unique_id=390823132]
 
@@ -90,16 +92,16 @@ script = ExtResource("3_hn12h")
 
 [node name="Planeta" type="Area2D" parent="." unique_id=273586107]
 position = Vector2(960, 1080)
-scale = Vector2(15, 15)
 script = ExtResource("4_ihfcg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Planeta" unique_id=1125626353]
 modulate = Color(1, 0, 1, 1)
+scale = Vector2(17, 17)
 shape = SubResource("CircleShape2D_hn12h")
 
-[node name="Sprite2D" type="Sprite2D" parent="Planeta/CollisionShape2D" unique_id=401485471]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_hn12h")
+[node name="Sprite2D" type="Sprite2D" parent="Planeta" unique_id=401485471]
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_bjebc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=678349475]
 layer = -1

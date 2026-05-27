@@ -14,3 +14,8 @@ Payload = ExtResource("3_qpe6y")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1522970310]
 texture = SubResource("CompressedTexture2D_eqdla")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=866936947]
+position = Vector2(0, 8.999999)
+scale = Vector2(0.2, 0.2)
+rect = Rect2(-10, -29, 20, 58)

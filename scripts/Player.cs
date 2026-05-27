@@ -14,7 +14,7 @@ public partial class Player : CharacterBody2D
 
 	//NEED TO BE MOVED FOR THE PLANET IN QUESTION
 	private float				friction = 0.92f;
-	private float				radius = 300f;
+	private float				radius = 250f;
 
 	//Graphics
 	private float				horizontal_size;
