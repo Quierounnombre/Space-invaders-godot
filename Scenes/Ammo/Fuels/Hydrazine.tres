@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://c3joqwdswqwdp" path="res://scripts/ammo/FuelResource.cs" id="1_o7b3y"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_o7b3y")
 Fuel = 100.0
-density = 1.0
 Energy_per_unit = 1200.0
 Burn_rate = 0.8

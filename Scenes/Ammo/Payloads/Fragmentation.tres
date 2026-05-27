@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cup52vhy8b7il" path="res://scripts/ammo/PayloadResource.cs" id="1_g34ei"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_g34ei")
-Area_of_impact = 0.5
-Mass = 10.0
+Kilos_of_TNT = 100.0
+Area_of_impact = 2.0
+Mass = 2.0

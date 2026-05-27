@@ -4,6 +4,5 @@
 
 [resource]
 script = ExtResource("1_atw8j")
-Kilos_of_TNT = 20.0
-Area_of_impact = 2.0
-Mass = 2.0
+Area_of_impact = 0.5
+Mass = 10.0

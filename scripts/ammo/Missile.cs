@@ -25,14 +25,9 @@ public partial class Missile : Area2D, IProjectile
 
 		energy = Fuel.Propulsate(this, delta);
 		force = energy / delta;
-		Acceleration += force / Mass;
+		Acceleration = force / Mass;
 		Speed += Acceleration * delta;
 		Position += Direction * (float)Speed * (float)delta;
-		GD.Print("energy = ", energy);
-		GD.Print("Force = ", force);
-		GD.Print("Acc = ", Acceleration);
-		GD.Print("Speed = ", Speed);
-		GD.Print("POS = ", Position);
 	}
 
 	public override void _Ready()
