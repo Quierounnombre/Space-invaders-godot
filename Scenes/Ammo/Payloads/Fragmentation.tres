@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PayloadResource" format=3 uid="uid://dqfrqffb54g8x"]
+
+[ext_resource type="Script" uid="uid://cup52vhy8b7il" path="res://scripts/ammo/PayloadResource.cs" id="1_g34ei"]
+
+[resource]
+script = ExtResource("1_g34ei")
+Area_of_impact = 0.5
+Mass = 10.0

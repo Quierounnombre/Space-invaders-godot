@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FuelResource" format=3 uid="uid://hqcjapuhk37i"]
+
+[ext_resource type="Script" uid="uid://c3joqwdswqwdp" path="res://scripts/ammo/FuelResource.cs" id="1_k335g"]
+
+[resource]
+script = ExtResource("1_k335g")
+Fuel = 100.0
+density = 0.004
+Energy_per_unit = 150.0
+Burn_rate = 0.05

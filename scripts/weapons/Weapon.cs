@@ -1,19 +1,19 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public abstract partial class Weapon : Node2D
 {
 	protected int					magazine;
 	protected int					ammo;
 	protected bool					flag_shooting = true;
 	protected bool					flag_combo = true;
-	protected PackedScene			bulletScene;
-	protected string				combo; 
-	protected string				combo_input; 
+	protected string				combo;
+	protected string				combo_input;
+	[Export] public PackedScene		bulletScene;
 
 	public override void _Ready()
 	{
-		bulletScene = GD.Load<PackedScene>("res://Scenes/Ammo/Bullet.tscn");
 		magazine = 6;
 		ammo = magazine;
 		combo = "LLR";
@@ -60,11 +60,11 @@ public abstract partial class Weapon : Node2D
 
 	protected void Shoot(Vector2 position, float angle)
 	{
-		var bullet = bulletScene.Instantiate<Bullet>();
+		var bullet = bulletScene.Instantiate<IProjectile>();
 		bullet.Position = position;
 		bullet.Direction = new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle));
 		bullet.Rotation = -angle + Mathf.Pi / 2f;
-		GetTree().CurrentScene.AddChild(bullet);
+		GetTree().CurrentScene.AddChild((Node)bullet);
 	}
 
 	protected bool IsComboOK()

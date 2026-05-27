@@ -1,5 +1,6 @@
 using Godot;
 
+[GlobalClass]
 public partial class Basic : Weapon
 {
 	public override void _Ready()

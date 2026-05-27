@@ -2,13 +2,12 @@ using Godot;
 
 public partial class Minigun : Weapon
 {
-	private double				burst_timer = 0.0;
-	private AnimatedSprite2D	animation;
-	public double				shoot_rate = 1.0;
+	private double					burst_timer = 0.0;
+	private AnimatedSprite2D		animation;
+	public double					shoot_rate = 1.0;
 
 	public override void _Ready()
 	{
-		bulletScene = GD.Load<PackedScene>("res://Scenes/Ammo/Bullet.tscn");
 		magazine = 150;
 		ammo = magazine;
 		combo = "RDL";

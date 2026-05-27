@@ -9,14 +9,13 @@ Payload -> From nuclear bombs tu tungsten cores, each one has a different OnDeto
 Sensors -> Did the missile have a way to direct itself or being control remoted by the ship?
  */
 
-public partial class Missile : Area2D
+public partial class Missile : Area2D, IProjectile
 {
 	[Export] public double				Speed;
 	[Export] public double				Mass;
 	[Export] public FuelResource		Fuel;
 	[Export] public PayloadResource		Payload;
-
-	public Vector2						Direction = Vector2.Up;
+	public Vector2 Direction { get; set; } = Vector2.Up;
 
 	public override void _PhysicsProcess(double delta)
 	{

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PayloadResource" format=3 uid="uid://blcv302tshlwl"]
+
+[ext_resource type="Script" uid="uid://cup52vhy8b7il" path="res://scripts/ammo/PayloadResource.cs" id="1_atw8j"]
+
+[resource]
+script = ExtResource("1_atw8j")
+Kilos_of_TNT = 20.0
+Area_of_impact = 2.0
+Mass = 2.0

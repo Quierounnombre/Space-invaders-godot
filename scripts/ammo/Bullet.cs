@@ -1,11 +1,11 @@
 using Godot;
 using System;
 
-public partial class Bullet : Area2D
+public partial class Bullet : Area2D, IProjectile
 {
 	[Export] public float		Speed;
 	[Export] public float		Mass;
-	public Vector2				Direction = Vector2.Up;
+	public Vector2 Direction { get; set; } = Vector2.Up;
 
 	public override void _PhysicsProcess(double delta)
 	{
