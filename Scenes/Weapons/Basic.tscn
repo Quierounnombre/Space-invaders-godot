@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddcpistpge4ah"]
 
-[ext_resource type="Script" uid="uid://2shtrp2gsxlk" path="res://scripts/weapons/Basic.cs" id="1_ocay2"]
+[ext_resource type="Script" uid="uid://b7u1auytlpuxv" path="res://scripts/weapons/Basic.cs" id="1_ocay2"]
 [ext_resource type="PackedScene" uid="uid://lrinxmthyesg" path="res://Scenes/Ammo/Bullet.tscn" id="2_hfgc8"]
 
 [node name="Basic" type="Node2D" unique_id=934711180]

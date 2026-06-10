@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://1aw1pnu2uf4m"]
+
+[ext_resource type="Script" uid="uid://dadv46y30brpk" path="res://scripts/weapons/Misile_launcher.cs" id="1_olovr"]
+[ext_resource type="PackedScene" uid="uid://86lmvrigt8ev" path="res://Scenes/Ammo/Missile.tscn" id="2_s1em6"]
+
+[node name="Missile launcher" type="Node2D" unique_id=934711180]
+script = ExtResource("1_olovr")
+bulletScene = ExtResource("2_s1em6")

@@ -6,3 +6,4 @@
 resource_local_to_scene = true
 script = ExtResource("1_5cux5")
 TurnRate = 5.0
+TimeForActivation = 0.7

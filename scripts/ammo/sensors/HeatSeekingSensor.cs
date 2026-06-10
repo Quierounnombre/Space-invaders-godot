@@ -5,6 +5,8 @@ using System;
 public partial class HeatSeekingSensor : SensorResource
 {
 	[Export] public float	TurnRate;
+	[Export] public float	TimeForActivation;
+	private double			time_since_launch = 0f;
 
 	public override void Guide(Missile missile, double delta)
 	{
@@ -12,6 +14,9 @@ public partial class HeatSeekingSensor : SensorResource
 		Vector2		desired;
 		float		dot;
 
+		time_since_launch += delta;
+		if (TimeForActivation > time_since_launch)
+			return ;
 		target = GetHeatTarget(missile);
 		if (target == null)
 			return ;

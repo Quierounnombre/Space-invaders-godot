@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c5jib460arqba"]
 
 [ext_resource type="Script" uid="uid://b1yl4yx1oxgxg" path="res://scripts/weapons/Minigun.cs" id="1_vx2d7"]
-[ext_resource type="PackedScene" uid="uid://86lmvrigt8ev" path="res://Scenes/Ammo/Missile.tscn" id="2_60806"]
+[ext_resource type="PackedScene" uid="uid://lrinxmthyesg" path="res://Scenes/Ammo/Bullet.tscn" id="2_60806"]
 [ext_resource type="Texture2D" uid="uid://baj8vh05hh6er" path="res://sprites/minigun0.png" id="2_vx2d7"]
 [ext_resource type="Texture2D" uid="uid://crmnsulpqexwx" path="res://sprites/minigun1.png" id="3_60806"]
 

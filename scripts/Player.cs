@@ -103,10 +103,11 @@ public partial class Player : CharacterBody2D
 		weaponScenes = new Dictionary<string, PackedScene>
 		{
 			{ "minigun", GD.Load<PackedScene>("res://Scenes/Weapons/Minigun.tscn") },
+			{ "missile_launcher", GD.Load<PackedScene>("res://Scenes/Weapons/Misile_launcher.tscn") },
 		};
 
 		//Equip(new Basic());
-		Equip("minigun");
+		Equip("missile_launcher");
 	}
 
 	public override void _PhysicsProcess(double delta)
