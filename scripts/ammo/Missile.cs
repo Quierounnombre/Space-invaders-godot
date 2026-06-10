@@ -14,6 +14,7 @@ public partial class Missile : Area2D, IProjectile
 	public double						Speed;
 	public double						Mass;
 	public double						Acceleration;
+	public Area2D						SensorArea;
 	[Export] public FuelResource		Fuel;
 	[Export] public PayloadResource		Payload;
 	[Export] public SensorResource		Sensor;
@@ -39,6 +40,7 @@ public partial class Missile : Area2D, IProjectile
 		Mass = Fuel.Density * Fuel.Fuel + Payload.Mass + Chasis;
 		AreaEntered += OnAreaEntered;
 		GetNode<VisibleOnScreenNotifier2D>("VisibleOnScreenNotifier2D").ScreenExited += ScreenLeave;
+		SensorArea = GetNode<Area2D>("SensorArea");
 	}
 
 	private void ScreenLeave()

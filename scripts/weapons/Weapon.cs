@@ -62,6 +62,7 @@ public abstract partial class Weapon : Node2D
 	{
 		var bullet = bulletScene.Instantiate<IProjectile>();
 		bullet.Position = position;
+		((Node2D)bullet).ZIndex = -1;
 		bullet.Direction = new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle));
 		bullet.Rotation = -angle + Mathf.Pi / 2f;
 		GetTree().CurrentScene.AddChild((Node)bullet);

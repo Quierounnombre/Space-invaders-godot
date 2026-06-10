@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LidarSensor" format=3 uid="uid://fqdw3jpr5enh"]
+
+[ext_resource type="Script" uid="uid://b75ikkxm2rnd8" path="res://scripts/ammo/sensors/LidarSensor.cs" id="1_uaitu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uaitu"]
+radius = 200.0
+
+[resource]
+script = ExtResource("1_uaitu")
+TurnRate = 5.0
+TimeForActivation = 0.7
+DetectionShape = SubResource("CircleShape2D_uaitu")

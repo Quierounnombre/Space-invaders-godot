@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bp4uo4a3skryh" path="res://scripts/ammo/Missile.cs" id="1_2sqy3"]
 [ext_resource type="Resource" uid="uid://die3yrmo6umcv" path="res://Scenes/Ammo/Fuels/Hydrazine.tres" id="2_qpe6y"]
 [ext_resource type="Resource" uid="uid://dqfrqffb54g8x" path="res://Scenes/Ammo/Payloads/Fragmentation.tres" id="3_qpe6y"]
-[ext_resource type="Resource" uid="uid://dpq7pwhclg2er" path="res://Scenes/Ammo/Sensors/HeatSeeking.tres" id="4_57e61"]
+[ext_resource type="Resource" uid="uid://fqdw3jpr5enh" path="res://Scenes/Ammo/Sensors/LidarSensor.tres" id="4_57e61"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eqdla"]
 load_path = "res://.godot/imported/atomic_torpedo.png-2e422bec707bf73fb62d2829ed37401a.ctex"
@@ -30,3 +30,5 @@ rect = Rect2(-10, -29, 20, 58)
 position = Vector2(0, -10)
 scale = Vector2(0.2, 0.2)
 shape = SubResource("RectangleShape2D_qpe6y")
+
+[node name="SensorArea" type="Area2D" parent="." unique_id=1685455696]
