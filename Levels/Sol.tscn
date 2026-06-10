@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://c30myjndlniu4"]
+
+[ext_resource type="Script" uid="uid://csd5ylhu0pqph" path="res://scripts/Player.cs" id="1_0d5ps"]
+[ext_resource type="Texture2D" uid="uid://5f8fsm3obe2r" path="res://sprites/fire engine low 0 ez.png" id="2_c7h22"]
+[ext_resource type="Texture2D" uid="uid://dpi1qtabr0f5p" path="res://sprites/fire engine low 1 ez.png" id="3_npn42"]
+[ext_resource type="Texture2D" uid="uid://1h3i6prng8rm" path="res://sprites/fire engine hi 0 ez.png" id="4_ngy4q"]
+[ext_resource type="Texture2D" uid="uid://cwnglrogem80b" path="res://sprites/fire engine hi 1 ez.png" id="5_sop51"]
+[ext_resource type="Script" uid="uid://cbfxfio3kqxt4" path="res://scripts/Spawner.cs" id="6_y16l2"]
+[ext_resource type="Script" uid="uid://bmy8rth3xtwwt" path="res://scripts/Planeta.cs" id="7_ukwa2"]
+[ext_resource type="Texture2D" uid="uid://b5wp7nstmp35n" path="res://sprites/fondo stars.png" id="8_omrgi"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ihfcg"]
+load_path = "res://.godot/imported/nave01.png-b9f68d068b591aba36dc04c858eb1bae.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
+size = Vector2(41, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjebc"]
+animations = [{
+"frames": [{
+"duration": 1.1,
+"texture": ExtResource("2_c7h22")
+}, {
+"duration": 0.9,
+"texture": ExtResource("3_npn42")
+}],
+"loop": true,
+"name": &"Propulsor_idle",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ngy4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sop51")
+}],
+"loop": true,
+"name": &"Propulsor_on",
+"speed": 24.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hn12h"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bjebc"]
+load_path = "res://.godot/imported/luna.png-78c244b3dd2f850948d9193a70262b9f.ctex"
+
+[node name="Node2D" type="Node2D" unique_id=390823132]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=453915640]
+position = Vector2(957, 638)
+disable_mode = 2
+collision_layer = 3
+script = ExtResource("1_0d5ps")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=513154503]
+rotation = 0.0046860967
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_ihfcg")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=1769277979]
+rotation = -0.0031864403
+scale = Vector2(2, 2)
+skew = 0.005083084
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=1642329049]
+scale = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Propulsor_izq" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=794567005]
+z_index = -1
+position = Vector2(-26, 32)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bjebc")
+animation = &"Propulsor_idle"
+autoplay = "Propulsor_idle"
+
+[node name="Propulsor_der" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1753971663]
+z_index = -1
+position = Vector2(25, 32)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bjebc")
+animation = &"Propulsor_idle"
+autoplay = "Propulsor_idle"
+flip_h = true
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1674003051]
+position = Vector2(50, 0)
+script = ExtResource("6_y16l2")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=537030017]
+
+[node name="Planeta" type="Area2D" parent="." unique_id=273586107]
+position = Vector2(960, 1080)
+script = ExtResource("7_ukwa2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planeta" unique_id=1125626353]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(17, 17)
+shape = SubResource("CircleShape2D_hn12h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Planeta" unique_id=401485471]
+scale = Vector2(2, 2)
+texture = SubResource("CompressedTexture2D_bjebc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=678349475]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1984112913]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_omrgi")

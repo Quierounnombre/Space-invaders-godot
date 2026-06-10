@@ -11,7 +11,7 @@ public partial class Spawner : Node2D
 
 	public override void _Ready()
 	{
-		enemyScene = GD.Load<PackedScene>("res://Enemy.tscn");
+		enemyScene = GD.Load<PackedScene>("res://Scenes/Enemies/Enemy.tscn");
 		_timer = GetNode<Timer>("Timer");
 		_timer.WaitTime = 3.0f;
 		_timer.Timeout += OnTick;
