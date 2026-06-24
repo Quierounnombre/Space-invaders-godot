@@ -53,13 +53,12 @@ public partial class LidarSensor : SensorResource
 		return target;
 	}
 
-	//Important update the size here, just in case for the misiles to have the same area
 	private Area2D GetOrCreateArea(Missile missile)
 	{
 		if (missile.SensorArea.GetChildCount() == 0)
 		{
 			var shape = new CollisionShape2D();
-			shape.Shape = DetectionShape ?? new RectangleShape2D { Size = new Vector2(450, 450) };
+			shape.Shape = DetectionShape ?? new CircleShape2D { Radius = 200 };
 			missile.SensorArea.AddChild(shape);
 		}
 		return missile.SensorArea;

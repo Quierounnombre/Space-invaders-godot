@@ -104,10 +104,11 @@ public partial class Player : CharacterBody2D
 		{
 			{ "minigun", GD.Load<PackedScene>("res://Scenes/Weapons/Minigun.tscn") },
 			{ "missile_launcher", GD.Load<PackedScene>("res://Scenes/Weapons/Misile_launcher.tscn") },
+			{ "laser_gun", GD.Load<PackedScene>("res://Scenes/Weapons/Laser_gun.tscn") },
 		};
 
 		//Equip(new Basic());
-		Equip("missile_launcher");
+		Equip("laser_gun");
 	}
 
 	public override void _PhysicsProcess(double delta)

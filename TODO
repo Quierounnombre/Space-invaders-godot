@@ -65,6 +65,8 @@ Armas:
 		* Alto daño y instantaneo.
 		* Apaga TODOS los sistemas de la nave.
 		* Cargador: 1
+		* Disparo: mantener botón 1 segundo
+		* Cuando disparado laser activo .5 segundos
 		* Formula de recarga: RLRLRLRLRL
 		* El laser ocupa toda una dirección, y no se desintegra al chocar con un enemigo.
 	-> Cañones triples:
