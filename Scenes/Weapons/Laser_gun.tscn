@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c56glsqhtk52c"]
+
+[ext_resource type="Script" uid="uid://dkminvvcdvkrq" path="res://scripts/weapons/Laser_gun.cs" id="1_tekf7"]
+[ext_resource type="PackedScene" uid="uid://coyakptqr1foh" path="res://Scenes/Ammo/Laser_ray.tscn" id="2_ewc2d"]
+
+[node name="LaserGun" type="Node2D" unique_id=1063651917]
+script = ExtResource("1_tekf7")
+bulletScene = ExtResource("2_ewc2d")

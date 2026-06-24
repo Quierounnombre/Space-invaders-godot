@@ -93,6 +93,10 @@ script = ExtResource("3_hn12h")
 [node name="Planeta" type="Area2D" parent="." unique_id=273586107]
 position = Vector2(960, 1080)
 script = ExtResource("4_ihfcg")
+HP = 3.0
+friction = 0.92
+radius = 250.0
+rotationSpeed = 0.018
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Planeta" unique_id=1125626353]
 modulate = Color(1, 0, 1, 1)

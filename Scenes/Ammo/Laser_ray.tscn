@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://coyakptqr1foh"]
+
+[ext_resource type="Script" uid="uid://dqfq04t2flyub" path="res://scripts/ammo/Laser_ray.cs" id="1_yoi45"]
+[ext_resource type="Texture2D" uid="uid://e7mhqi6jvtay" path="res://sprites/icon.svg" id="2_vacti"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq7po"]
+size = Vector2(128.00003, 128.18085)
+
+[node name="LaserRay" type="Area2D" unique_id=1401362010]
+script = ExtResource("1_yoi45")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=729000840]
+position = Vector2(3, -340)
+scale = Vector2(0.18750001, 5.53125)
+texture = ExtResource("2_vacti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1902943665]
+position = Vector2(3.0000021, -340.50003)
+scale = Vector2(0.1874999, 5.531246)
+shape = SubResource("RectangleShape2D_cq7po")
+debug_color = Color(0.98695284, 0.1136701, 3.85046e-07, 0.41960785)

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://3qr214g662sq"
+=======
+uid="uid://btj2kmxm0msj8"
+>>>>>>> e3762214021a92173c206a00bf5178bfb45db810
 path="res://.godot/imported/fondo_luna.png-48ba36a331ded92e31abb0d444f95ba9.ctex"
 metadata={
 "vram_texture": false
