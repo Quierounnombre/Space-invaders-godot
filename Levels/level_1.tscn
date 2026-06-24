@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://1h3i6prng8rm" path="res://sprites/fire engine hi 0 ez.png" id="4_bjebc"]
 [ext_resource type="Script" uid="uid://bmy8rth3xtwwt" path="res://scripts/Planeta.cs" id="4_ihfcg"]
 [ext_resource type="Texture2D" uid="uid://cwnglrogem80b" path="res://sprites/fire engine hi 1 ez.png" id="5_5rr72"]
-[ext_resource type="Texture2D" uid="uid://b5wp7nstmp35n" path="res://sprites/fondo stars.png" id="9_5rr72"]
+[ext_resource type="Texture2D" uid="uid://3qr214g662sq" path="res://sprites/background/fondo_luna.png" id="8_77x7w"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ihfcg"]
 load_path = "res://.godot/imported/nave01.png-b9f68d068b591aba36dc04c858eb1bae.ctex"
@@ -109,4 +109,4 @@ layer = -1
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1984112913]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("9_5rr72")
+texture = ExtResource("8_77x7w")
