@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c66r82wo7cxj3"]
+
+[node name="Hangar" type="Node2D" unique_id=85045278]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=278525682]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1990253926]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=1693189765]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
