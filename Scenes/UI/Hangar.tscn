@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c66r82wo7cxj3"]
+
+[ext_resource type="Script" uid="uid://jvg8cy0yaenv" path="res://scripts/UI/SetWeapon.cs" id="1_7v77n"]
+[ext_resource type="PackedScene" uid="uid://c5jib460arqba" path="res://Scenes/Weapons/Minigun.tscn" id="2_mn27q"]
+[ext_resource type="PackedScene" uid="uid://1aw1pnu2uf4m" path="res://Scenes/Weapons/Misile_launcher.tscn" id="3_5sq08"]
+[ext_resource type="Script" uid="uid://cm2s1phdxcu2a" path="res://scripts/UI/LoadPrevious.cs" id="4_5sq08"]
+
+[node name="Hangar" type="Node2D" unique_id=85045278]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=278525682]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1990253926]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1306196471]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Minigun" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=1367711449]
+layout_mode = 2
+text = "Minigun"
+script = ExtResource("1_7v77n")
+scene = ExtResource("2_mn27q")
+
+[node name="Misile launche" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=371181930]
+layout_mode = 2
+text = "Misile launcher"
+script = ExtResource("1_7v77n")
+scene = ExtResource("3_5sq08")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/HBoxContainer" unique_id=479004688]
+layout_mode = 2
+
+[node name="Atras" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=1722093093]
+layout_mode = 2
+text = "Atras"
+script = ExtResource("4_5sq08")

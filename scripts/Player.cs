@@ -11,19 +11,13 @@ public partial class Player : CharacterBody2D
 	public float				angle = Mathf.Pi / 2f; // start at bottom (90°)
 	private Weapon				currentWeapon;
 	public static Vector2		circleCenter;
-
-	//NEED TO BE MOVED FOR THE PLANET IN QUESTION
-	private float				friction = 0.92f;
-	private float				radius = 250f;
+	private Planeta				planet;
 
 	//Graphics
 	private float				horizontal_size;
 	private float				sprite_half_size;
 	private AnimatedSprite2D	left_animation;
 	private AnimatedSprite2D	right_animation;
-
-	//Preload
-	private Dictionary<string, PackedScene> weaponScenes;
 
 	public void GetInput()
 	{
@@ -49,26 +43,20 @@ public partial class Player : CharacterBody2D
 				left_animation.Play("Propulsor_idle");
 				right_animation.Play("Propulsor_idle");
 			}
-			speed *= friction;
+			speed *= planet.friction;
 		}
 		if (Input.IsKeyPressed(Key.W))
-			radius++;
+			planet.radius++;
 		else if (Input.IsKeyPressed(Key.S))
-			radius--;
+			planet.radius--;
 	}
 
-	public void Equip(string weaponKey)
+	public void Equip(PackedScene weapon_scene)
 	{
-		PackedScene		scene;
-
 		if (currentWeapon != null)
 			currentWeapon.QueueFree();
-		if (weaponScenes.ContainsKey(weaponKey))
-		{
-			scene = weaponScenes[weaponKey];
-			currentWeapon = scene.Instantiate<Weapon>();
-			AddChild(currentWeapon);
-		}
+		currentWeapon = weapon_scene.Instantiate<Weapon>();
+		AddChild(currentWeapon);
 	}
 
 	public override void _Ready()
@@ -81,6 +69,9 @@ public partial class Player : CharacterBody2D
 		windows = view.GetVisibleRect();
 		size_of_window = windows.Size;
 		horizontal_size = size_of_window.X;
+
+		//Set planet
+		planet = GetNode<Planeta>("../Planeta");
 
 		//SPRITE
 		Sprite2D	sprite;
@@ -99,16 +90,8 @@ public partial class Player : CharacterBody2D
 		//AREA ENTER
 		GetNode<Area2D>("Area2D").AreaEntered += OnAreaEntered;
 
-		//WEAPON
-		weaponScenes = new Dictionary<string, PackedScene>
-		{
-			{ "minigun", GD.Load<PackedScene>("res://Scenes/Weapons/Minigun.tscn") },
-			{ "missile_launcher", GD.Load<PackedScene>("res://Scenes/Weapons/Misile_launcher.tscn") },
-			{ "laser_gun", GD.Load<PackedScene>("res://Scenes/Weapons/Laser_gun.tscn") },
-		};
-
 		//Equip(new Basic());
-		Equip("laser_gun");
+		Equip(GetNode<GameState>("/root/GameState").weapon_scene);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -121,7 +104,7 @@ public partial class Player : CharacterBody2D
 		angle += speed;
 		angle = Mathf.Clamp(angle, 0f, Mathf.Pi); // lock to semicircle
 		MoveAndSlide();
-		Position = circleCenter + new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle)) * radius;
+		Position = circleCenter + new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle)) * planet.radius;
 		Rotation = -angle + Mathf.Pi / 2f;
 	}
 

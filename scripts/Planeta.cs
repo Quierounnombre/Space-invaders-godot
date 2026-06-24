@@ -3,10 +3,14 @@ using System;
 
 public partial class Planeta : Area2D
 {
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	[Export] public float				HP;
+	[Export] public float				friction;
+	[Export] public float				radius;
+	[Export] public float				rotationSpeed;
+
 	public override void _Process(double delta)
 	{
-		
+		Rotation += rotationSpeed * (float)delta;
 	}
 
 	public override void _Ready()
@@ -18,7 +22,12 @@ public partial class Planeta : Area2D
 	{
 		if (area is Enemy)
 		{
-			QueueFree();
+			Enemy enemy = area as Enemy;
+			HP -= enemy.DealDamage();
+			if (HP <= 0.0f)
+			{
+				QueueFree();
+			}
 		}
 	}
 }

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b38a8sr53kjav"]
+
+[ext_resource type="Script" uid="uid://dvbtgs1cxo34x" path="res://scripts/UI/LoadScene.cs" id="1_44mln"]
+[ext_resource type="Script" uid="uid://dpkp3r86durkq" path="res://scripts/UI/Exit.cs" id="1_atsri"]
+[ext_resource type="PackedScene" uid="uid://c63pr6fjv4lga" path="res://Levels/level_1.tscn" id="2_0nji7"]
+[ext_resource type="PackedScene" uid="uid://c66r82wo7cxj3" path="res://Scenes/UI/Hangar.tscn" id="3_l2368"]
+
+[node name="Start" type="Node2D" unique_id=1461866352]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1718209082]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1398182983]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=856902991]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 43.0
+
+[node name="Inicio" type="Button" parent="CanvasLayer/Control/Container" unique_id=4587486]
+layout_mode = 2
+text = "Inicio"
+script = ExtResource("1_44mln")
+Scene = ExtResource("2_0nji7")
+
+[node name="Hangar" type="Button" parent="CanvasLayer/Control/Container" unique_id=1233868657]
+layout_mode = 2
+text = "Hangar
+"
+script = ExtResource("1_44mln")
+Scene = ExtResource("3_l2368")
+
+[node name="Salida" type="Button" parent="CanvasLayer/Control/Container" unique_id=238719477]
+layout_mode = 2
+text = "Salir
+"
+script = ExtResource("1_atsri")
