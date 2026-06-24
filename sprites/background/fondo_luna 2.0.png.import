@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baytvhcw8ufwa"
-path="res://.godot/imported/laser_01.png-b48bb63b79b3ff955df15929ff5dd230.ctex"
+uid="uid://diug8ewjoleme"
+path="res://.godot/imported/fondo_luna 2.0.png-17354d93d7be49f2ca36a20cd6789843.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/laser/laser_01.png"
-dest_files=["res://.godot/imported/laser_01.png-b48bb63b79b3ff955df15929ff5dd230.ctex"]
+source_file="res://sprites/background/fondo_luna 2.0.png"
+dest_files=["res://.godot/imported/fondo_luna 2.0.png-17354d93d7be49f2ca36a20cd6789843.ctex"]
 
 [params]
 
