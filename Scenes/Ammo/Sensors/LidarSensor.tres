@@ -1,4 +1,4 @@
-[gd_resource type="Resource" format=3 uid="uid://fqdw3jpr5enh"]
+[gd_resource type="Resource" script_class="LidarSensor" format=3 uid="uid://fqdw3jpr5enh"]
 
 [ext_resource type="Script" uid="uid://b75ikkxm2rnd8" path="res://scripts/ammo/sensors/LidarSensor.cs" id="1_uaitu"]
 
