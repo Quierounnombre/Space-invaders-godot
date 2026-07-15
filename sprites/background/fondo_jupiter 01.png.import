@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3qr214g662sq"
-path="res://.godot/imported/fondo_luna.png-48ba36a331ded92e31abb0d444f95ba9.ctex"
+uid="uid://dx8m6tk3pu3i4"
+path="res://.godot/imported/fondo_jupiter 01.png-b659d535286baadf66f26f467188cb75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background/fondo_luna.png"
-dest_files=["res://.godot/imported/fondo_luna.png-48ba36a331ded92e31abb0d444f95ba9.ctex"]
+source_file="res://sprites/background/fondo_jupiter 01.png"
+dest_files=["res://.godot/imported/fondo_jupiter 01.png-b659d535286baadf66f26f467188cb75.ctex"]
 
 [params]
 
