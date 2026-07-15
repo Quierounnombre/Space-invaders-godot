@@ -25,14 +25,20 @@ grow_vertical = 2
 
 [node name="Container" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=856902991]
 layout_mode = 0
-offset_right = 50.0
-offset_bottom = 43.0
+offset_left = -73.0
+offset_top = -42.0
+offset_right = 72.0
+offset_bottom = 103.0
 
 [node name="Inicio" type="Button" parent="CanvasLayer/Control/Container" unique_id=4587486]
 layout_mode = 2
 text = "Inicio"
 script = ExtResource("1_44mln")
 Scene = ExtResource("2_0nji7")
+
+[node name="Nivel" type="Button" parent="CanvasLayer/Control/Container" unique_id=1232965906]
+layout_mode = 2
+text = "Selección de nivel"
 
 [node name="Hangar" type="Button" parent="CanvasLayer/Control/Container" unique_id=1233868657]
 layout_mode = 2

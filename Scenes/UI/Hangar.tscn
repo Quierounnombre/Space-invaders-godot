@@ -18,8 +18,10 @@ offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1306196471]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 364.0
+offset_bottom = 90.0
 
 [node name="Minigun" type="Button" parent="CanvasLayer/Control/HBoxContainer" unique_id=1367711449]
 layout_mode = 2

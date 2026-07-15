@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cjvrn3xd8vola"]
+
+[ext_resource type="Script" uid="uid://c2drckffwm222" path="res://Scenes/UI/Salida.cs" id="1_cn5x3"]
+
+[node name="Start" type="Node2D" unique_id=1461866352]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1718209082]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1398182983]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=856902991]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -42.0
+offset_right = 72.0
+offset_bottom = 103.0
+
+[node name="Luna" type="Button" parent="CanvasLayer/Control/Container" unique_id=1232965906]
+layout_mode = 2
+text = "Luna"
+
+[node name="Jupiter" type="Button" parent="CanvasLayer/Control/Container" unique_id=923736889]
+layout_mode = 2
+text = "Jupiter"
+
+[node name="Atras" type="Button" parent="CanvasLayer/Control/Container" unique_id=238719477]
+layout_mode = 2
+text = "Volver
+"
+script = ExtResource("1_cn5x3")

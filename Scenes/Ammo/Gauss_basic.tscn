@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://cds6pjesndr6a"]
 
 [ext_resource type="Script" uid="uid://dnyox23qq8rv6" path="res://scripts/ammo/Bullet.cs" id="1_5su7v"]
-[ext_resource type="Texture2D" uid="uid://e7mhqi6jvtay" path="res://sprites/icon.svg" id="2_6rpqj"]
+[ext_resource type="Texture2D" uid="uid://nfmew4jjbtj1" path="res://sprites/simple_AMMO.png" id="2_5su7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4s4u5"]
 size = Vector2(15, 70)
 
 [node name="Bullet" type="Area2D" unique_id=1572743273]
 z_index = -1
-position = Vector2(0, -80)
 script = ExtResource("1_5su7v")
 Speed = 1600.0
 Mass = 20.0
@@ -20,7 +19,7 @@ shape = SubResource("RectangleShape2D_4s4u5")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=562405376]
 position = Vector2(0, 44.749996)
 scale = Vector2(0.1, 1.1445311)
-texture = ExtResource("2_6rpqj")
+texture = ExtResource("2_5su7v")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=408117592]
 position = Vector2(0, 93)
