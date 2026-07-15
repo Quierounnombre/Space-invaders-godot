@@ -4,17 +4,23 @@ using System.Threading.Tasks;
 
 public partial class Laser_ray : Area2D, IProjectile
 {
+	[Export] public float		Duration;
+	[Export] public float		Damage;
+	private Timer				_timer;
+	public Player				Source;
+
 	public Vector2 Direction { get; set; } = Vector2.Up;
 
 	public override void _Ready()
 	{
+		_timer = GetNode<Timer>("Timer");
+		_timer.Timeout += OnTick;
+		_timer.Start();
 		AreaEntered += OnAreaEntered;
-		autoDelete();
 	}
 
-	private async Task autoDelete()
+	private void OnTick()
 	{
-		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 		QueueFree();
 	}
 
@@ -22,7 +28,16 @@ public partial class Laser_ray : Area2D, IProjectile
 	{
 		if (area is Enemy enemy)
 		{
-			enemy.TakeDamage(100);
+			enemy.TakeDamage(Damage);
+		}
+	}
+
+	public override void _Process(double delta)
+	{
+		if (Source != null)
+		{
+			GlobalPosition = Source.GlobalPosition;
+			Rotation = Source.Rotation;
 		}
 	}
 }

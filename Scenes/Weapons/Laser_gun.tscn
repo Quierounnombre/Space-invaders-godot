@@ -2,7 +2,73 @@
 
 [ext_resource type="Script" uid="uid://dkminvvcdvkrq" path="res://scripts/weapons/Laser_gun.cs" id="1_tekf7"]
 [ext_resource type="PackedScene" uid="uid://coyakptqr1foh" path="res://Scenes/Ammo/Laser_ray.tscn" id="2_ewc2d"]
+[ext_resource type="Texture2D" uid="uid://n4precifp5n" path="res://sprites/laser/laser_00.png" id="3_w8ftp"]
+[ext_resource type="Texture2D" uid="uid://baytvhcw8ufwa" path="res://sprites/laser/laser_01.png" id="4_vqxy8"]
+[ext_resource type="Texture2D" uid="uid://ro2b13vsglad" path="res://sprites/laser/laser_02.png" id="5_ki03x"]
+[ext_resource type="Texture2D" uid="uid://b6ec0l15lcnlt" path="res://sprites/laser/laser_03.png" id="6_btnrl"]
+[ext_resource type="Texture2D" uid="uid://5r74bjq8eqbg" path="res://sprites/laser/laser_04.png" id="7_0fm4w"]
+[ext_resource type="Texture2D" uid="uid://bgikgkfhfy3tj" path="res://sprites/laser/laser_05.png" id="8_vnwns"]
+[ext_resource type="Texture2D" uid="uid://d13pbspkqsh6u" path="res://sprites/laser/laser_06.png" id="9_hv312"]
+[ext_resource type="Texture2D" uid="uid://ctbphpncktcv3" path="res://sprites/laser/laser_07.png" id="10_4v88u"]
+[ext_resource type="Texture2D" uid="uid://duhwpt8xq1iwe" path="res://sprites/laser/laser_08.png" id="11_1u8s3"]
+[ext_resource type="Texture2D" uid="uid://s5rsbujsvjxg" path="res://sprites/laser/laser_09.png" id="12_6wgld"]
+[ext_resource type="Texture2D" uid="uid://couucsothumpj" path="res://sprites/laser/laser_10.png" id="13_8mlie"]
+[ext_resource type="Texture2D" uid="uid://bty1f6wr5447l" path="res://sprites/laser/laser_11.png" id="14_gtilf"]
+[ext_resource type="Texture2D" uid="uid://cml3vpte70kug" path="res://sprites/laser/laser_12.png" id="15_v0eg6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewc2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w8ftp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vqxy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ki03x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_btnrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0fm4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vnwns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hv312")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4v88u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1u8s3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6wgld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8mlie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_gtilf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_v0eg6")
+}],
+"loop": true,
+"name": &"Laser_gun_animation",
+"speed": 60.0
+}]
 
 [node name="LaserGun" type="Node2D" unique_id=1063651917]
+z_index = -1
 script = ExtResource("1_tekf7")
 bulletScene = ExtResource("2_ewc2d")
+
+[node name="Animacion" type="AnimatedSprite2D" parent="." unique_id=2074550804]
+sprite_frames = SubResource("SpriteFrames_ewc2d")
+animation = &"Laser_gun_animation"
+offset = Vector2(0, -30)

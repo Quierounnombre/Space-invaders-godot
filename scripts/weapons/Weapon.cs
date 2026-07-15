@@ -58,7 +58,7 @@ public abstract partial class Weapon : Node2D
 		}
 	}
 
-	protected void Shoot(Vector2 position, float angle)
+	protected virtual void Shoot(Vector2 position, float angle)
 	{
 		var bullet = bulletScene.Instantiate<IProjectile>();
 		bullet.Position = position;

@@ -2,41 +2,46 @@ using Godot;
 
 public partial class Laser_gun : Weapon
 {
-	private double			charge_power_timer = 0.0;
-	private const double	CHARGE_MAX_TIME = 1.0;
+	private double					charge_power_timer = 0.0;
+	private const double			CHARGE_MAX_TIME = 1.0;
+	private AnimatedSprite2D		animation;
 
 	public override void _Ready()
 	{
-		magazine = 30;
+		magazine = 1;
 		ammo = magazine;
-		combo = "L";
+		combo = "RLRL";
 		combo_input = "";
+		animation = GetNode<AnimatedSprite2D>("Animacion");
+		animation.SpeedScale = 0.2f;
 	}
 
 	public override void _Process(double delta)
 	{
-		if (!Input.IsKeyPressed(Key.Space))
-		{
-			if (flag_shooting && ammo > 0){
-				Player player = (Player)GetParent();
-				float angle = player.angle;
-				Shoot(player.Position, angle);
-				ammo--;
-			}
-			charge_power_timer = 0.0;
-			flag_shooting = false;
-		}
-
 		if (Input.IsKeyPressed(Key.Space))
 		{
-			charge_power_timer+=delta;
+			if (!animation.IsPlaying() && ammo > 0)
+			{
+				animation.Play();
+			}
+			charge_power_timer += delta;
 			if (charge_power_timer >= CHARGE_MAX_TIME)
 			{
-				flag_shooting = true;
+				if (ammo > 0)
+				{
+					Player player = (Player)GetParent();
+					float angle = player.angle;
+					Shoot();
+					ammo--;
+					animation.Stop();
+				}
+				charge_power_timer = 0.0;
 			}
-		} else
+		}
+		else
 		{
-			flag_shooting = false;
+			animation.Stop();
+			charge_power_timer = 0.0f;
 		}
 		if (Input.IsKeyPressed(Key.R))
 		{
@@ -58,5 +63,13 @@ public partial class Laser_gun : Weapon
 				ammo = magazine;
 			combo_input = "";
 		}
+	}
+
+	public void Shoot()
+	{
+		Player parent = (Player)GetParent();
+		var bullet = (Laser_ray)bulletScene.Instantiate();
+		bullet.Source = parent;
+		GetTree().CurrentScene.AddChild(bullet);
 	}
 }
