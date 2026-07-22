@@ -57,7 +57,7 @@ public partial class Minigun : Weapon
 				ammo = magazine;
 			combo_input = "";
 		}
-		if (Input.IsKeyPressed(Key.J) && flag_shooting == true)
+		if (Input.IsKeyPressed(Key.Space) && flag_shooting == true)
 		{
 			if (shoot_rate > 0.05)
 			{

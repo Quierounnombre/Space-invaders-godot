@@ -24,6 +24,7 @@ script = ExtResource("1_vx2d7")
 bulletScene = ExtResource("2_60806")
 
 [node name="Animacion" type="AnimatedSprite2D" parent="." unique_id=473348173]
+z_index = -1
 position = Vector2(0, -30)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wmmr1")
