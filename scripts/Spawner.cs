@@ -3,7 +3,8 @@ using System;
 
 public partial class Spawner : Node2D
 {
-	private PackedScene			enemyScene;
+	[Export] public PackedScene			enemyScene;
+
 	private Timer				_timer;
 	private float				windowWidth;
 	private float				radius = 1000f;
@@ -11,7 +12,6 @@ public partial class Spawner : Node2D
 
 	public override void _Ready()
 	{
-		enemyScene = GD.Load<PackedScene>("res://Scenes/Enemies/Enemy.tscn");
 		_timer = GetNode<Timer>("Timer");
 		_timer.WaitTime = 3.0f;
 		_timer.Timeout += OnTick;

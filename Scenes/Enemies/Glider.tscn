@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://odur0qsrkqxx"]
+[gd_scene format=3 uid="uid://b8r3wljjygp0l"]
 
-[ext_resource type="Script" uid="uid://btua2ax6iw7u4" path="res://scripts/enemys/Enemy.cs" id="1_s7bn3"]
+[ext_resource type="Script" uid="uid://c2mem61oddkwu" path="res://scripts/enemys/Glider.cs" id="1_ef53i"]
+[ext_resource type="PackedScene" uid="uid://lrinxmthyesg" path="res://Scenes/Ammo/Bullet.tscn" id="2_ckl1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7bn3"]
 size = Vector2(20, 24.5)
@@ -9,11 +10,16 @@ size = Vector2(20, 24.5)
 load_path = "res://.godot/imported/enemy00.png-0e1d41584c71688384f89f2956431c41.ctex"
 
 [node name="Node2D" type="Area2D" unique_id=1989440771]
-script = ExtResource("1_s7bn3")
+script = ExtResource("1_ef53i")
+bulletScene = ExtResource("2_ckl1i")
+outerMargin = 80.0
+arcSpan = 0.6
+arcSpeed = 1.0
+fireCooldown = 1.0
 HeatSignature = 1.0
 Speed = 100.0
 damage = 1.0
-Life = 100.0
+Life = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=952048636]
 position = Vector2(-0.5, 0.75)
@@ -24,3 +30,6 @@ shape = SubResource("RectangleShape2D_s7bn3")
 position = Vector2(0, 0.5)
 scale = Vector2(2, 2)
 texture = SubResource("CompressedTexture2D_tt7e2")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1988314846]
+collide_with_areas = true

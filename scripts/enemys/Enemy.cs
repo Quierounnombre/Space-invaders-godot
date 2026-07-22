@@ -7,7 +7,7 @@ public partial class Enemy : Area2D
 	[Export] public float	Speed;
 	[Export] public float	damage;
 	[Export] public double	Life;
-	private Vector2		direction = Vector2.Down;
+	public Vector2			direction = Vector2.Down;
 
 	public override void _PhysicsProcess(double delta)
 	{
