@@ -32,7 +32,7 @@ public partial class Laser_ray : Area2D, IProjectile
 		}
 	}
 
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		if (Source != null)
 		{

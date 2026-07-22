@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://1h3i6prng8rm" path="res://sprites/fire engine hi 0 ez.png" id="4_bjebc"]
 [ext_resource type="Script" uid="uid://bmy8rth3xtwwt" path="res://scripts/Planeta.cs" id="4_ihfcg"]
 [ext_resource type="Texture2D" uid="uid://cwnglrogem80b" path="res://sprites/fire engine hi 1 ez.png" id="5_5rr72"]
+[ext_resource type="PackedScene" uid="uid://b8r3wljjygp0l" path="res://Scenes/Enemies/Glider.tscn" id="7_xoyoh"]
 [ext_resource type="Texture2D" uid="uid://cl82v8o2hloq7" path="res://sprites/background/fondo_luna 3.0 copia.png" id="8_77x7w"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ihfcg"]
@@ -87,6 +88,7 @@ flip_h = true
 [node name="Spawner" type="Node2D" parent="." unique_id=1674003051]
 position = Vector2(50, 0)
 script = ExtResource("3_hn12h")
+enemyScene = ExtResource("7_xoyoh")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=537030017]
 
